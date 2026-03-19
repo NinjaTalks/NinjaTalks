@@ -179,11 +179,6 @@ button:hover, .btn:hover {
   opacity: 0.9;
 }
 
-.menu-toggle {
-  display: none;
-  color: var(--white);
-}
-
 /* ===========================
    MOBILE SLIDE-IN MENU
    =========================== */
@@ -195,7 +190,12 @@ button:hover, .btn:hover {
   border: none;
   color: var(--white);
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: auto;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 20px;
 }
 
 .side-menu {
@@ -230,9 +230,9 @@ button:hover, .btn:hover {
   right: 0;
 }
 
-/* Show hamburger on mobile */
+/* Show hamburger on mobile, hide desktop menu */
 @media (max-width: 768px) {
-  nav ul {
+  .desktop-menu {
     display: none;
   }
 
