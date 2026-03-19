@@ -2,91 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mind & Body Wellness – Ninja Talks</title>
+  <title>Mind & Body – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const sideMenu = document.querySelector('.side-menu');
-
-  menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-  });
-</script>
-  
 <body>
   <header>
     <nav>
-      <button class="menu-toggle" aria-label="Open Menu">
-  ☰
-</button>
+
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+        <h1>Ninja Talks</h1>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+
+      <!-- Slide-In Mobile Menu -->
       <div class="side-menu">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="wellness.html">Mind & Body</a></li>
-  </ul>
-</div>
-  <div class="logo-container">
-    <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-    <h1>Ninja Talks</h1>
-  </div>
-  <ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="neurodiversity.html">Neurodiversity</a></li>
+          <li><a href="wellness.html">Mind & Body</a></li>
+          <li><a href="storytime.html">Story Time</a></li>
+          <li><a href="music.html">AI Music</a></li>
+          <li><a href="fellowship.html">Fellowship</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="desktop-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind &amp; Body</a></li>
+        <li><a href="wellness.html">Mind & Body</a></li>
         <li><a href="storytime.html">Story Time</a></li>
         <li><a href="music.html">AI Music</a></li>
         <li><a href="fellowship.html">Fellowship</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Mind &amp; Body Wellness</h2>
-      <p>This page focuses on mental health and physical wellness for both men and women. Each week we explore different topics with guests who share their experiences, insights, and practical tools for healthier living.</p>
+      <h2>Mind & Body Wellness</h2>
+      <p>Wellness is a balance — a connection between the mind, body, and the world around us. At Ninja Talks, we explore practical ways to support emotional health, physical well‑being, and personal growth.</p>
 
-      <h3>Topics We Cover</h3>
+      <p>Whether you're navigating stress, building healthier habits, or learning to understand your emotions, this space is here to guide and support you on your journey.</p>
+    </section>
+
+    <section>
+      <h3>Wellness Topics We Explore</h3>
       <ul>
-        <li>Mental health for men and women</li>
-        <li>Stress, anxiety, and emotional wellbeing</li>
-        <li>Physical health and body wellness</li>
-        <li>Nutrition and fitness</li>
-        <li>Self‑care and healing</li>
-        <li>Guest discussions and expert insights</li>
+        <li><strong>Mental Health:</strong> Understanding emotions, stress, and self‑care.</li>
+        <li><strong>Physical Wellness:</strong> Movement, nutrition, and healthy routines.</li>
+        <li><strong>Mindfulness:</strong> Techniques to stay grounded and present.</li>
+        <li><strong>Self‑Compassion:</strong> Learning to treat yourself with kindness.</li>
+        <li><strong>Growth:</strong> Building resilience and personal strength.</li>
       </ul>
-    </section>
-
-    <section>
-      <h3>This Week’s Focus</h3>
-      <p><em>Update this section every Tuesday before the live session.</em></p>
-    </section>
-
-    <section>
-      <h3>Last Week’s Topic</h3>
-      <p><em>Move the previous week’s content here.</em></p>
-    </section>
-
-    <section>
-      <h3>Archive</h3>
-      <p><em>List all past topics here.</em></p>
-    </section>
-
-    <section>
-      <h3>Live Session</h3>
-      <p><strong>Every Tuesday — 8PM to 10PM SAST</strong></p>
-      <p>Live on TikTok @urfavninja</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; Ninja Talks</p>
   </footer>
+
+  <!-- JavaScript MUST be at the bottom -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+
+    menuToggle.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
+    });
+  </script>
+
 </body>
 </html>
