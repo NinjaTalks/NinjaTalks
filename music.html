@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>AI Music – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/main.css?v=10">
+  <link rel="stylesheet" href="assets/css/main.css?v=11">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,7 +17,15 @@
       color: #fff;
       padding: 10px 20px;
     }
-    header h1 { margin: 0; }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      height: 50px;
+      width: auto;
+    }
     nav ul { list-style: none; padding: 0; display: flex; gap: 15px; }
     nav ul li a { color: #fff; text-decoration: none; }
     main { padding: 20px; }
@@ -58,7 +66,10 @@
 <body>
   <!-- HEADER -->
   <header>
-    <h1>Ninja Talks – AI Music</h1>
+    <div class="logo-container">
+      <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+      <h1>Ninja Talks – AI Music</h1>
+    </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -187,20 +198,23 @@
       return container;
     }
 
-    function renderTrackCard(track) {
+        function renderTrackCard(track) {
       const card = document.createElement('div');
       card.className = 'track-card';
+
       const title = document.createElement('h4');
       title.textContent = `${track.title} — ${track.artist}`;
       card.appendChild(title);
+
       const votes = document.createElement('p');
       votes.textContent = `Votes: ${track.votes}`;
       card.appendChild(votes);
+
       card.appendChild(createEmbed(track.link));
       return card;
     }
 
-        async function loadTracks() {
+    async function loadTracks() {
       try {
         const res = await fetch(API_URL);
         const data = await res.json();
