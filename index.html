@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="assets/css/main.css?v=12">
   <style>
     body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fdfdfd; color:#333; }
-    header { background:#4b0082; color:#fff; padding:15px 20px; }
+    header { background:#4b0082; color:#fff; padding:15px 20px; position:relative; }
     .logo-container { display:flex; align-items:center; gap:10px; }
     .logo { height:50px; }
     nav ul { 
@@ -25,6 +25,15 @@
       padding:5px 10px; 
       display:inline-block; 
     }
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      margin-left: auto;
+    }
     .hero { background:#eee; padding:40px 20px; text-align:center; }
     .hero h2 { color:#4b0082; margin-top:20px; margin-bottom:10px; }
     .hero img { height:120px; margin-bottom:15px; }
@@ -33,6 +42,26 @@
     .social-embed { margin:20px 0; text-align:center; }
     .tiktok-button { display:inline-block; margin-top:10px; padding:10px 20px; background:#000; color:#fff; text-decoration:none; border-radius:5px; }
     footer { background:#4b0082; color:#fff; text-align:center; padding:20px; margin-top:40px; }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #4b0082;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -41,9 +70,11 @@
   <div class="logo-container">
     <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
     <h1>Ninja Talks</h1>
+    <!-- Hamburger button -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
   </div>
   <nav>
-    <ul>
+    <ul id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="neurodiversity.html">Neurodiversity</a></li>
       <li><a href="wellness.html">Mind & Body</a></li>
@@ -58,7 +89,6 @@
 <main>
   <!-- HERO -->
   <section class="hero">
-    <!-- Updated logo with transparent background -->
     <img src="assets/images/No background logo.png" alt="Ninja Talks Logo">
     <h2>Welcome to Ninja Talks</h2>
     <p>Community, Creativity, Connection — join the movement.</p>
@@ -101,6 +131,12 @@
 <footer>
   <p>&copy; Ninja Talks</p>
 </footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
