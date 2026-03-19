@@ -2,7 +2,6 @@
    NINJA TALKS PURPLE THEME
    =========================== */
 
-
 :root {
   --purple-dark: #3a0ca3;
   --purple: #7209b7;
@@ -17,6 +16,18 @@
 }
 
 /* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--gray-light);
+  color: var(--black);
+  line-height: 1.6;
+}
 
 /* Logo Styling */
 .logo-container {
@@ -30,19 +41,6 @@
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-main);
-  background: var(--gray-light);
-  color: var(--black);
-  line-height: 1.6;
 }
 
 /* Header */
@@ -63,12 +61,6 @@ nav h1 {
   font-weight: bold;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
 nav a {
   color: var(--white);
   text-decoration: none;
@@ -78,6 +70,13 @@ nav a {
 
 nav a:hover {
   color: var(--pink);
+}
+
+/* Desktop Menu */
+.desktop-menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
 
 /* Main Content */
@@ -121,27 +120,6 @@ button, .btn {
 
 button:hover, .btn:hover {
   background: var(--pink);
-}
-
-/* Mobile Navigation */
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: var(--purple-dark);
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  nav.active ul {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 24px;
-  }
 }
 
 /* ===========================
@@ -193,11 +171,6 @@ button:hover, .btn:hover {
   margin-left: auto;
 }
 
-.desktop-menu {
-  display: flex;
-  gap: 20px;
-}
-
 .side-menu {
   position: fixed;
   top: 0;
@@ -230,12 +203,18 @@ button:hover, .btn:hover {
   right: 0;
 }
 
-/* Show hamburger on mobile, hide desktop menu */
+/* ===========================
+   MOBILE RESPONSIVE RULES
+   =========================== */
+
 @media (max-width: 768px) {
+
+  /* Hide desktop menu */
   .desktop-menu {
     display: none;
   }
 
+  /* Show hamburger */
   .menu-toggle {
     display: block;
   }
