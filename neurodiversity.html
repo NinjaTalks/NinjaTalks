@@ -7,90 +7,80 @@
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const sideMenu = document.querySelector('.side-menu');
-
-  menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-  });
-</script>
-  
 <body>
   <header>
     <nav>
-      <button class="menu-toggle" aria-label="Open Menu">
-  ☰
-</button>
+
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+        <h1>Ninja Talks</h1>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+
+      <!-- Slide-In Mobile Menu -->
       <div class="side-menu">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="wellness.html">Mind & Body</a></li>
-  </ul>
-</div>
-  <div class="logo-container">
-    <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-    <h1>Ninja Talks</h1>
-  </div>
-  <ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="neurodiversity.html">Neurodiversity</a></li>
+          <li><a href="wellness.html">Mind & Body</a></li>
+          <li><a href="storytime.html">Story Time</a></li>
+          <li><a href="music.html">AI Music</a></li>
+          <li><a href="fellowship.html">Fellowship</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="desktop-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind &amp; Body</a></li>
+        <li><a href="wellness.html">Mind & Body</a></li>
         <li><a href="storytime.html">Story Time</a></li>
         <li><a href="music.html">AI Music</a></li>
         <li><a href="fellowship.html">Fellowship</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Neurodiversity Awareness &amp; Acceptance</h2>
-      <p>Neurodiversity refers to the natural differences in how human brains function. These differences are not flaws — they are variations that shape how people think, learn, communicate, and experience the world.</p>
+      <h2>Understanding Neurodiversity</h2>
+      <p>Neurodiversity celebrates the natural variations in how human brains function. It recognizes that neurological differences such as autism, ADHD, dyslexia, dyspraxia, and others are not flaws — they are part of the rich diversity of human experience.</p>
 
-      <h3>Types of Neurodiversity</h3>
+      <p>At Ninja Talks, we believe in creating a world where neurodivergent individuals feel understood, supported, and empowered. Our goal is to amplify voices, share real stories, and build a community rooted in acceptance and awareness.</p>
+    </section>
+
+    <section>
+      <h3>Why It Matters</h3>
       <ul>
-        <li>Autism Spectrum</li>
-        <li>ADHD</li>
-        <li>Dyslexia</li>
-        <li>Dyspraxia</li>
-        <li>Dyscalculia</li>
-        <li>Tourette’s</li>
-        <li>OCD</li>
-        <li>Sensory Processing Differences</li>
+        <li><strong>Representation:</strong> Everyone deserves to see themselves reflected in the world around them.</li>
+        <li><strong>Understanding:</strong> Education reduces stigma and builds empathy.</li>
+        <li><strong>Support:</strong> Communities thrive when all members feel valued.</li>
+        <li><strong>Strengths:</strong> Neurodivergent minds bring creativity, innovation, and unique perspectives.</li>
       </ul>
-
-      <p>At Ninja Talks, we create awareness, share real stories, and highlight the experiences of neurodivergent individuals, children, parents, and caregivers. Our goal is to build understanding, compassion, and acceptance.</p>
-    </section>
-
-    <section>
-      <h3>This Week’s Topic</h3>
-      <p><em>Update this section every Monday before the live session.</em></p>
-    </section>
-
-    <section>
-      <h3>Last Week’s Topic</h3>
-      <p><em>Move the previous week’s content here.</em></p>
-    </section>
-
-    <section>
-      <h3>Archive</h3>
-      <p><em>List all past topics here.</em></p>
-    </section>
-
-    <section>
-      <h3>Live Session</h3>
-      <p><strong>Every Monday — 8PM to 10PM SAST</strong></p>
-      <p>Live on TikTok @urfavninja</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; Ninja Talks</p>
   </footer>
+
+  <!-- JavaScript MUST be at the bottom -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+
+    menuToggle.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
+    });
+  </script>
+
 </body>
 </html>
