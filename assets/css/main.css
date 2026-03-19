@@ -159,8 +159,8 @@ button:hover, .btn:hover {
 }
 
 .hero-logo {
-  height: 60px;
-  width: 60px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
