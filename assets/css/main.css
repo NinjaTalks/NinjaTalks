@@ -153,6 +153,39 @@ footer {
 }
 
 /* ===========================
+   SOCIAL ICONS
+   =========================== */
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-icons .icon {
+  width: 32px;
+  height: 32px;
+  color: var(--white);
+  background: var(--purple);
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.social-icons .icon:hover {
+  background: var(--pink);
+  transform: translateY(-3px);
+}
+
+.social-icons svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===========================
    BUTTONS
    =========================== */
 
