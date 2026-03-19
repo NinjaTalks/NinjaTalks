@@ -60,6 +60,25 @@
       padding: 10px;
       margin-top: 40px;
     }
+    /* Responsive grid for Top 10 */
+      .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    /* Vote bar styling */
+      .vote-bar {
+      background: #eee;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .vote-fill {
+    background: #4b0082;
+    height: 12px;
+    width: 0%; /* dynamically set in JS */
+    transition: width 0.5s ease;
+    }
   </style>
 </head>
 
