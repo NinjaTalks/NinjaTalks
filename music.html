@@ -4,14 +4,36 @@
   <meta charset="UTF-8">
   <title>AI Music – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/main.css?v=5">
+  <link rel="stylesheet" href="assets/css/main.css?v=9">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #fdfdfd;
+      color: #333;
+    }
+    header {
+      background: #4b0082;
+      color: #fff;
+      padding: 10px 20px;
+    }
+    header h1 { margin: 0; }
+    nav ul { list-style: none; padding: 0; display: flex; gap: 15px; }
+    nav ul li a { color: #fff; text-decoration: none; }
+    main { padding: 20px; }
+    h2, h3 { color: #4b0082; }
+    .requirements-box {
+      background: #eee;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
     .track-card {
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 12px;
       margin: 12px 0;
-      background: #f9f9f9;
+      background: #fafafa;
     }
     .track-card h4 {
       margin: 0 0 6px;
@@ -21,12 +43,14 @@
       margin: 0 0 8px;
       font-weight: bold;
     }
-    .track-embed {
-      margin-top: 8px;
-    }
-    .countdown {
-      font-weight: bold;
-      color: #b22222;
+    .track-embed { margin-top: 8px; }
+    .countdown { font-weight: bold; color: #b22222; }
+    footer {
+      background: #4b0082;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -34,13 +58,9 @@
 <body>
   <!-- HEADER -->
   <header>
+    <h1>Ninja Talks – AI Music</h1>
     <nav>
-      <div class="logo-container">
-        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-        <h1>Ninja Talks</h1>
-      </div>
-      <button class="menu-toggle" aria-label="Open Menu">☰</button>
-      <ul class="desktop-menu">
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="neurodiversity.html">Neurodiversity</a></li>
         <li><a href="wellness.html">Mind & Body</a></li>
@@ -64,7 +84,7 @@
       <h3>Weekly Schedule</h3>
       <ul>
         <li><strong>Submissions close:</strong> Thursday 12pm <span id="submission-countdown" class="countdown">Loading…</span></li>
-        <li><strong>Voting closes:</strong> Friday 12pm <span id="voting-countdown" class="countdown">Loading…</span></li>
+        <li><strong>Voting close:</strong> Friday 12pm <span id="voting-countdown" class="countdown">Loading…</span></li>
         <li><strong>Live show:</strong> Friday 8pm</li>
       </ul>
     </section>
@@ -180,50 +200,58 @@
       return card;
     }
 
-    async function loadTracks() {
+        async function loadTracks() {
       try {
         const res = await fetch(API_URL);
         const data = await res.json();
+
         const top10Container = document.getElementById('top10-list');
         const allContainer = document.getElementById('all-tracks-list');
         const featuredContainer = document.getElementById('featured-track');
-        top10Container.innerHTML = ''; allContainer.innerHTML = ''; featuredContainer.innerHTML = '';
-        const top10 = data.top10 || []; const allTracks = data.allTracks || [];
-                let featured = top10.length > 0 ? top10[0] : (allTracks.length > 0 ? allTracks[0] : null);
 
+        // Clear old content
+        top10Container.innerHTML = '';
+        allContainer.innerHTML = '';
+        featuredContainer.innerHTML = '';
+
+        const top10 = data.top10 || [];
+        const allTracks = data.allTracks || [];
+
+        // Featured track
+        let featured = top10.length > 0 ? top10[0] : (allTracks.length > 0 ? allTracks[0] : null);
         if (featured) {
-          const card = renderTrackCard(featured);
-          featuredContainer.appendChild(card);
+          featuredContainer.appendChild(renderTrackCard(featured));
         } else {
           featuredContainer.textContent = 'No tracks submitted yet.';
         }
 
+        // Top 10 list
         if (top10.length === 0) {
           top10Container.textContent = 'No tracks yet for this week.';
         } else {
           top10.forEach(track => {
-            const card = renderTrackCard(track);
-            top10Container.appendChild(card);
+            top10Container.appendChild(renderTrackCard(track));
           });
         }
 
+        // All tracks list
         if (allTracks.length === 0) {
           allContainer.textContent = 'No tracks submitted yet.';
         } else {
           allTracks.forEach(track => {
-            const card = renderTrackCard(track);
-            allContainer.appendChild(card);
+            allContainer.appendChild(renderTrackCard(track));
           });
         }
 
       } catch (err) {
         console.error(err);
-        document.getElementById('top10-list').textContent = 'Error loading tracks.';
-        document.getElementById('all-tracks-list').textContent = 'Error loading tracks.';
         document.getElementById('featured-track').textContent = 'Error loading featured track.';
+        document.getElementById('top10-list').textContent = 'Error loading Top 10.';
+        document.getElementById('all-tracks-list').textContent = 'Error loading tracks.';
       }
     }
 
+    // Run on page load
     loadTracks();
   </script>
 </body>
