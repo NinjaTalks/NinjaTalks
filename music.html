@@ -157,135 +157,150 @@
   </footer>
 
   <!-- JAVASCRIPT -->
-  <script>
-    const API_URL = 'https://script.google.com/macros/s/AKfycbyOUg88Kb2t9r9sppQZr2wBTBE5ajXfhY-ye4ewAO6LtihQK41XahtUNYd8f0j3GfGB/exec';
+ <script>
+  const API_URL = 'https://script.google.com/macros/s/AKfycbyOUg88Kb2t9r9sppQZr2wBTBE5ajXfhY-ye4ewAO6LtihQK41XahtUNYd8f0j3GfGB/exec';
 
-    // Countdown helpers
-    function getNextWeekday(targetDay, hour, minute) {
+  // Countdown helpers
+  function getNextWeekday(targetDay, hour, minute) {
+    const now = new Date();
+    const result = new Date(now);
+    result.setHours(hour, minute, 0, 0);
+    const currentDay = now.getDay();
+    let diff = targetDay - currentDay;
+    if (diff < 0 || (diff === 0 && result <= now)) diff += 7;
+    result.setDate(now.getDate() + diff);
+    return result;
+  }
+  function startCountdown(elementId, getTargetDateFn) {
+    function update() {
+      const el = document.getElementById(elementId);
       const now = new Date();
-      const result = new Date(now);
-      result.setHours(hour, minute, 0, 0);
-      const currentDay = now.getDay();
-      let diff = targetDay - currentDay;
-      if (diff < 0 || (diff === 0 && result <= now)) diff += 7;
-      result.setDate(now.getDate() + diff);
-      return result;
+      const target = getTargetDateFn();
+      const diff = target - now;
+      if (diff <= 0) { el.textContent = 'Closed'; return; }
+      const seconds = Math.floor(diff / 1000);
+      const days = Math.floor(seconds / 86400);
+      const hours = Math.floor((seconds % 86400) / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      el.textContent = `${days}d ${hours}h ${minutes}m`;
     }
-    function startCountdown(elementId, getTargetDateFn) {
-      function update() {
-        const el = document.getElementById(elementId);
-        const now = new Date();
-        const target = getTargetDateFn();
-        const diff = target - now;
-        if (diff <= 0) { el.textContent = 'Closed'; return; }
-        const seconds = Math.floor(diff / 1000);
-        const days = Math.floor(seconds / 86400);
-        const hours = Math.floor((seconds % 86400) / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        el.textContent = `${days}d ${hours}h ${minutes}m`;
-      }
-      update();
-      setInterval(update, 60000);
-    }
-    startCountdown('submission-countdown', () => getNextWeekday(4, 12, 0)); // Thursday 12pm
-    startCountdown('voting-countdown', () => getNextWeekday(5, 12, 0)); // Friday 12pm
+    update();
+    setInterval(update, 60000);
+  }
+  startCountdown('submission-countdown', () => getNextWeekday(4, 12, 0)); // Thursday 12pm
+  startCountdown('voting-countdown', () => getNextWeekday(5, 12, 0)); // Friday 12pm
 
-    // Embed helpers
-    function createEmbed(link) {
-      const container = document.createElement('div');
-      container.className = 'track-embed';
-      if (link.includes('spotify.com')) {
-        const url = new URL(link);
-        if (url.pathname.startsWith('/track/')) url.pathname = '/embed' + url.pathname;
-        const iframe = document.createElement('iframe');
-        iframe.src = url.toString();
-        iframe.width = '100%'; iframe.height = '152'; iframe.frameBorder = '0';
-        iframe.allow = 'encrypted-media';
-        container.appendChild(iframe);
-      } else {
-        let videoId = null;
-        try {
-          const url = new URL(link);
-          if (url.hostname.includes('youtu.be')) videoId = url.pathname.slice(1);
-          else if (url.searchParams.get('v')) videoId = url.searchParams.get('v');
-        } catch (e) {}
-        const iframe = document.createElement('iframe');
-        iframe.width = '100%'; iframe.height = '315'; iframe.frameBorder = '0';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.src = videoId ? 'https://www.youtube.com/embed/' + videoId : link;
-        container.appendChild(iframe);
-      }
-      return container;
-    }
-
-        function renderTrackCard(track) {
-      const card = document.createElement('div');
-      card.className = 'track-card';
-
-      const title = document.createElement('h4');
-      title.textContent = `${track.title} — ${track.artist}`;
-      card.appendChild(title);
-
-      const votes = document.createElement('p');
-      votes.textContent = `Votes: ${track.votes}`;
-      card.appendChild(votes);
-
-      card.appendChild(createEmbed(track.link));
-      return card;
-    }
-
-    async function loadTracks() {
+  // Embed helpers
+  function createEmbed(link) {
+    const container = document.createElement('div');
+    container.className = 'track-embed';
+    if (link.includes('spotify.com')) {
+      const url = new URL(link);
+      if (url.pathname.startsWith('/track/')) url.pathname = '/embed' + url.pathname;
+      const iframe = document.createElement('iframe');
+      iframe.src = url.toString();
+      iframe.width = '100%'; iframe.height = '152'; iframe.frameBorder = '0';
+      iframe.allow = 'encrypted-media';
+      container.appendChild(iframe);
+    } else {
+      let videoId = null;
       try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
-
-        const top10Container = document.getElementById('top10-list');
-        const allContainer = document.getElementById('all-tracks-list');
-        const featuredContainer = document.getElementById('featured-track');
-
-        top10Container.innerHTML = '';
-        allContainer.innerHTML = '';
-        featuredContainer.innerHTML = '';
-
-        const top10 = data.top10 || [];
-        const allTracks = data.allTracks || [];
-
-        // Featured track
-        let featured = top10.length > 0 ? top10[0] : (allTracks.length > 0 ? allTracks[0] : null);
-        if (featured) {
-          featuredContainer.appendChild(renderTrackCard(featured));
-        } else {
-          featuredContainer.textContent = 'No tracks submitted yet.';
-        }
-
-        // Top 10 list
-        if (top10.length === 0) {
-          top10Container.textContent = 'No tracks yet for this week.';
-        } else {
-          top10.forEach(track => {
-            top10Container.appendChild(renderTrackCard(track));
-          });
-        }
-
-        // All tracks list
-        if (allTracks.length === 0) {
-          allContainer.textContent = 'No tracks submitted yet.';
-        } else {
-          allTracks.forEach(track => {
-            allContainer.appendChild(renderTrackCard(track));
-          });
-        }
-
-      } catch (err) {
-        console.error(err);
-        document.getElementById('featured-track').textContent = 'Error loading featured track.';
-        document.getElementById('top10-list').textContent = 'Error loading Top 10.';
-        document.getElementById('all-tracks-list').textContent = 'Error loading tracks.';
-      }
+        const url = new URL(link);
+        if (url.hostname.includes('youtu.be')) videoId = url.pathname.slice(1);
+        else if (url.searchParams.get('v')) videoId = url.searchParams.get('v');
+      } catch (e) {}
+      const iframe = document.createElement('iframe');
+      iframe.width = '100%'; iframe.height = '315'; iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.src = videoId ? 'https://www.youtube.com/embed/' + videoId : link;
+      container.appendChild(iframe);
     }
+    return container;
+  }
 
-    // Run on page load
-    loadTracks();
-  </script>
+  // Track card with vote bar
+  function renderTrackCard(track, maxVotes) {
+    const card = document.createElement('div');
+    card.className = 'track-card';
+
+    const title = document.createElement('h4');
+    title.textContent = `${track.title} — ${track.artist}`;
+    card.appendChild(title);
+
+    const votes = document.createElement('p');
+    votes.textContent = `Votes: ${track.votes}`;
+    card.appendChild(votes);
+
+    // Vote bar
+    const bar = document.createElement('div');
+    bar.className = 'vote-bar';
+    const fill = document.createElement('div');
+    fill.className = 'vote-fill';
+    const percent = maxVotes > 0 ? (track.votes / maxVotes) * 100 : 0;
+    fill.style.width = percent + '%';
+    bar.appendChild(fill);
+    card.appendChild(bar);
+
+    card.appendChild(createEmbed(track.link));
+    return card;
+  }
+
+  async function loadTracks() {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+
+      const top10Container = document.getElementById('top10-list');
+      const allContainer = document.getElementById('all-tracks-list');
+      const featuredContainer = document.getElementById('featured-track');
+
+      top10Container.innerHTML = '';
+      allContainer.innerHTML = '';
+      featuredContainer.innerHTML = '';
+
+      const top10 = data.top10 || [];
+      const allTracks = data.allTracks || [];
+
+      // Find max votes for scaling bars
+      const maxVotesTop10 = top10.length > 0 ? Math.max(...top10.map(t => t.votes)) : 0;
+      const maxVotesAll = allTracks.length > 0 ? Math.max(...allTracks.map(t => t.votes)) : 0;
+
+      // Featured track
+      let featured = top10.length > 0 ? top10[0] : (allTracks.length > 0 ? allTracks[0] : null);
+      if (featured) {
+        featuredContainer.appendChild(renderTrackCard(featured, maxVotesTop10 || maxVotesAll));
+      } else {
+        featuredContainer.textContent = 'No tracks submitted yet.';
+      }
+
+      // Top 10 list
+      if (top10.length === 0) {
+        top10Container.textContent = 'No tracks yet for this week.';
+      } else {
+        top10.forEach(track => {
+          top10Container.appendChild(renderTrackCard(track, maxVotesTop10));
+        });
+      }
+
+      // All tracks list
+      if (allTracks.length === 0) {
+        allContainer.textContent = 'No tracks submitted yet.';
+      } else {
+        allTracks.forEach(track => {
+          allContainer.appendChild(renderTrackCard(track, maxVotesAll));
+        });
+      }
+
+    } catch (err) {
+      console.error(err);
+      document.getElementById('featured-track').textContent = 'Error loading featured track.';
+      document.getElementById('top10-list').textContent = 'Error loading Top 10.';
+      document.getElementById('all-tracks-list').textContent = 'Error loading tracks.';
+    }
+  }
+
+  // Run on page load
+  loadTracks();
+</script>
 </body>
 </html>
