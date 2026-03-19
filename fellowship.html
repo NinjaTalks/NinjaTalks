@@ -2,90 +2,85 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Christian Fellowship – Ninja Talks</title>
+  <title>Fellowship – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const sideMenu = document.querySelector('.side-menu');
-
-  menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-  });
-</script>
-  
 <body>
   <header>
     <nav>
-      <button class="menu-toggle" aria-label="Open Menu">
-  ☰
-</button>
+
+      <!-- Logo -->
+      <div class="logo-container">
+        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+        <h1>Ninja Talks</h1>
+      </div>
+
+      <!-- Hamburger Button -->
+      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+
+      <!-- Slide-In Mobile Menu -->
       <div class="side-menu">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="wellness.html">Mind & Body</a></li>
-  </ul>
-</div>
-  <div class="logo-container">
-    <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-    <h1>Ninja Talks</h1>
-  </div>
-  <ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="neurodiversity.html">Neurodiversity</a></li>
+          <li><a href="wellness.html">Mind & Body</a></li>
+          <li><a href="storytime.html">Story Time</a></li>
+          <li><a href="music.html">AI Music</a></li>
+          <li><a href="fellowship.html">Fellowship</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Desktop Menu -->
+      <ul class="desktop-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind &amp; Body</a></li>
+        <li><a href="wellness.html">Mind & Body</a></li>
         <li><a href="storytime.html">Story Time</a></li>
         <li><a href="music.html">AI Music</a></li>
         <li><a href="fellowship.html">Fellowship</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
     </nav>
   </header>
 
   <main>
     <section>
-      <h2>Christian Fellowship Service</h2>
-      <p>Our Christian Fellowship Service is a time of worship, teaching, encouragement, and community. We explore scripture, discuss faith‑based topics, and create a space for spiritual growth and connection.</p>
+      <h2>Fellowship</h2>
+      <p>The Ninja Talks Fellowship is all about community — a space where people uplift one another, share wisdom, and grow together. Whether you're here to learn, connect, or contribute, this is where meaningful bonds are formed.</p>
 
-      <h3>What You Can Expect</h3>
+      <p>Our fellowship brings together individuals from all backgrounds who believe in compassion, understanding, and collective empowerment. Everyone has something valuable to offer, and everyone has a place here.</p>
+    </section>
+
+    <section>
+      <h3>What Fellowship Means to Us</h3>
       <ul>
-        <li>Praise and worship</li>
-        <li>Scripture readings</li>
-        <li>Weekly message</li>
-        <li>Testimonies</li>
-        <li>Prayer and encouragement</li>
+        <li><strong>Support:</strong> Standing together through challenges and victories.</li>
+        <li><strong>Unity:</strong> Building bridges between diverse experiences.</li>
+        <li><strong>Growth:</strong> Encouraging personal and community development.</li>
+        <li><strong>Purpose:</strong> Creating a shared mission rooted in kindness.</li>
       </ul>
-    </section>
-
-    <section>
-      <h3>This Week’s Message</h3>
-      <p><em>Update this section every Sunday before the live service.</em></p>
-    </section>
-
-    <section>
-      <h3>Last Week’s Message</h3>
-      <p><em>Move the previous week’s message here.</em></p>
-    </section>
-
-    <section>
-      <h3>Archive</h3>
-      <p><em>List all past messages here.</em></p>
-    </section>
-
-    <section>
-      <h3>Live Service</h3>
-      <p><strong>Every Sunday — 8PM to 10PM SAST</strong></p>
-      <p>Live on TikTok @urfavninja</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; Ninja Talks</p>
   </footer>
+
+  <!-- JavaScript MUST be at the bottom -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+
+    menuToggle.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
+    });
+  </script>
+
 </body>
 </html>
