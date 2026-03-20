@@ -116,6 +116,17 @@
       border:4px solid var(--white);
     }
 
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
     main {
       max-width:900px;
       margin:40px auto;
@@ -128,13 +139,51 @@
     h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
     section { margin-bottom:30px; }
 
+    .highlight-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .highlight-card {
+      background:#fafafa;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .tiktok-button {
+      display:inline-block;
+      margin-top:10px;
+      padding:12px 24px;
+      background:#000;
+      color:#fff;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      background:var(--purple-dark);
+      color:var(--white);
+    }
+
     @media (max-width:768px) {
       .desktop-menu { display:none !important; }
       .menu-toggle { display:block !important; }
     }
   </style>
 
-  <!-- Load full CSS async (prevents blocking flash) -->
+  <!-- Load full CSS async -->
   <link rel="preload" href="/NinjaTalks/assets/css/main.css?v=12" as="style">
   <link rel="stylesheet" href="/NinjaTalks/assets/css/main.css?v=12">
 </head>
@@ -180,15 +229,47 @@
   <!-- LIVE STATUS -->
   <div id="live-status"></div>
 
+  <!-- HERO -->
   <section class="hero">
     <img src="/NinjaTalks/assets/images/No background logo.png" alt="Ninja Talks Logo" width="120" height="120">
-    <h2>Welcome to Ninja Talks</h2>
-    <p>Community, Creativity, Connection — join the movement.</p>
+    <h2 class="hero-title">Welcome to Ninja Talks</h2>
+    <p class="hero-tagline">Community, Creativity, Connection — join the movement.</p>
   </section>
 
+  <!-- HIGHLIGHTS -->
   <section>
     <h3>This Week’s Highlights</h3>
-    <p>Explore the latest stories, music, and community events.</p>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <h4>🎵 Featured Track</h4>
+        <p>Check out the top voted AI Music track of the week.</p>
+        <a href="/NinjaTalks/music.html" class="btn">Listen Now</a>
+      </div>
+
+      <div class="highlight-card">
+        <h4>📖 Story of the Week</h4>
+        <p>Discover a new voice in our Storytime community.</p>
+        <a href="/NinjaTalks/storytime.html" class="btn">Read More</a>
+      </div>
+
+      <div class="highlight-card">
+        <h4>🤝 Upcoming Fellowship</h4>
+        <p>Countdown to our next community meetup.</p>
+        <a href="/NinjaTalks/fellowship.html" class="btn">Join Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section>
+    <h3>From Our Socials</h3>
+    <a class="tiktok-button" href="https://www.tiktok.com/@ninjatalkshost" target="_blank">See more on TikTok</a>
+  </section>
+
+  <!-- YOUTUBE AT BOTTOM -->
+  <section>
+    <h3>Featured Video</h3>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/LT6rSH5FfXs" frameborder="0" allowfullscreen></iframe>
   </section>
 
 </main>
