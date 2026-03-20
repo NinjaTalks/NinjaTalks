@@ -1,404 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ninja Talks – AI Music</title>
-    <link rel="stylesheet" href="/assets/css/music.css">
+  <meta charset="UTF-8">
+  <title>Ninja Talks – AI Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/music.css">
 </head>
 
 <body>
 
-<header class="hero">
-    <img src="/assets/images/logo other.png" alt="Ninja Talks Logo" class="logo">
-    <h1>AI Music Charts</h1>
-    <p>Submit your track. Vote for your favourites. Rise to the Top 10.</p>
+<!-- HEADER -->
+<header>
+  <div class="logo-container">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
+    <h1>Ninja Talks</h1>
+  </div>
+
+  <nav>
+    <div></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
 </header>
+
+<!-- SLIDE-IN MENU -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="/NinjaTalks/index.html">Home</a></li>
+    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
+    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
+    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
+    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
+    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
+    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
+  </ul>
+</div>
 
 <main>
 
-<!-- SUBMIT YOUR TRACK -->
-<section class="submit-section">
-    <h2>Submit Your Track</h2>
-    <p>Think your track deserves a spot on the leaderboard? Submit it below.</p>
-    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSegIIkvLuzKWEcD3OShmVuw3Tlwv5IKu7HvcXtavx50C-lXow/viewform?usp=header" target="_blank">Submit Your Track</a>
+<!-- HERO -->
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/logo other.png">
+  <h2 class="hero-title">AI Music Charts</h2>
+  <p class="hero-tagline">Submit. Vote. Rise to the Top 10.</p>
 </section>
 
-<!-- VOTING INSTRUCTIONS -->
-<section class="voting-instructions">
-    <h2>How Voting Works</h2>
-    <p>Vote for your favourite tracks once per week. The Top 10 resets every Saturday at 12:00 AM.</p>
-    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd0_P1_E80ulZzOlA8IF06-bEjB9mz3Ukp0LLoW3UE_UDxCJQ/viewform?usp=header" target="_blank">Vote Now</a>
+<!-- WEEKLY SCHEDULE -->
+<section>
+  <h3>Weekly Schedule</h3>
+
+  <div class="schedule-box">
+    <h4>📥 Submissions</h4>
+    <p><strong>Open:</strong> Saturday 12:00 AM</p>
+    <p><strong>Close:</strong> Thursday 12:00 AM</p>
+    <p>Time until submissions close:</p>
+    <p id="submissionCountdown" class="countdown"></p>
+  </div>
+
+  <div class="schedule-box">
+    <h4>🗳 Voting</h4>
+    <p><strong>Open:</strong> Saturday 12:00 AM</p>
+    <p><strong>Close:</strong> Thursday 12:00 PM</p>
+    <p>Time until voting closes:</p>
+    <p id="votingCountdown" class="countdown"></p>
+  </div>
+
+  <div class="schedule-box">
+    <h4>🎤 TikTok Live</h4>
+    <p><strong>Starts:</strong> Friday 8:00 PM SAST</p>
+    <p>Time until live show:</p>
+    <p id="liveCountdown" class="countdown"></p>
+    <p>The Top 10 tracks will be played live on TikTok every Friday.</p>
+  </div>
 </section>
 
-<!-- WEEKLY SCHEDULE + COUNTDOWNS -->
-<section class="schedule">
-    <h2>Weekly Schedule</h2>
-
-    <div class="schedule-box">
-        <h3>📥 Submissions</h3>
-        <p><strong>Open:</strong> Saturday 12:00 AM</p>
-        <p><strong>Close:</strong> Thursday 12:00 AM</p>
-        <p class="countdown-label">Time until submissions close:</p>
-        <p id="submissionCountdown" class="countdown"></p>
-    </div>
-
-    <div class="schedule-box">
-        <h3>🗳 Voting</h3>
-        <p><strong>Open:</strong> Saturday 12:00 AM</p>
-        <p><strong>Close:</strong> Thursday 12:00 PM</p>
-        <p class="countdown-label">Time until voting closes:</p>
-        <p id="votingCountdown" class="countdown"></p>
-    </div>
-
-    <div class="schedule-box">
-        <h3>🎤 TikTok Live</h3>
-        <p><strong>Starts:</strong> Friday 8:00 PM SAST</p>
-        <p class="countdown-label">Time until live show:</p>
-        <p id="liveCountdown" class="countdown"></p>
-        <p class="note">The Top 10 tracks will be played live on TikTok every Friday.</p>
-    </div>
+<!-- SUBMIT -->
+<section>
+  <h3>Submit Your Track</h3>
+  <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSegIIkvLuzKWEcD3OShmVuw3Tlwv5IKu7HvcXtavx50C-lXow/viewform" target="_blank">Submit Your Track</a>
 </section>
 
-<!-- TOP SONG OF THE WEEK -->
-<section class="top-song highlight">
-    <h2>🎵 Top Song of the Week</h2>
-
-    <div class="track-card featured">
-        <h3>Midnight Echo – Nova Lane</h3>
-        <audio controls>
-            <source src="" type="audio/mpeg">
-        </audio>
-        <p class="votes">Votes: <strong>312</strong></p>
-    </div>
+<!-- TOP SONG -->
+<section>
+  <h3>🎵 Top Song of the Week</h3>
+  <div class="track-card">
+    <h4>Midnight Echo – Nova Lane</h4>
+    <audio controls><source src=""></audio>
+    <p><strong>312 votes</strong></p>
+  </div>
 </section>
 
-<!-- THIS WEEK'S TOP 10 -->
-<section class="top10">
-    <h2>🔥 This Week’s Top 10</h2>
+<!-- TOP 10 -->
+<section>
+  <h3>🔥 This Week’s Top 10</h3>
 
-    <ol class="chart-list">
+  <div class="track-card">
+    <h4>#1 Midnight Echo – Nova Lane</h4>
+    <audio controls><source src=""></audio>
+    <div class="vote-bar" style="width:95%"></div>
+  </div>
 
-        <li>
-            <div class="track-card">
-                <span class="rank">1</span>
-                <h3>Midnight Echo – Nova Lane</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 95%;"></div>
-                <p class="votes">312 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">2</span>
-                <h3>Electric Bloom – Jax Orion</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 88%;"></div>
-                <p class="votes">289 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">3</span>
-                <h3>Neon Skies – Lira Voss</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 80%;"></div>
-                <p class="votes">260 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">4</span>
-                <h3>Hollow Pulse – Zane Rydell</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 72%;"></div>
-                <p class="votes">234 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">5</span>
-                <h3>Silver Voltage – Aria Kestrel</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 65%;"></div>
-                <p class="votes">210 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">6</span>
-                <h3>Static Dreams – Milo Riven</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 58%;"></div>
-                <p class="votes">187 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">7</span>
-                <h3>Crimson Circuit – Vexa Hale</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 52%;"></div>
-                <p class="votes">168 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">8</span>
-                <h3>Echo Drift – Solen Kai</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 45%;"></div>
-                <p class="votes">149 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">9</span>
-                <h3>Binary Bloom – Nira Sol</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 40%;"></div>
-                <p class="votes">132 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">10</span>
-                <h3>Velvet Circuit – Arlo Vega</h3>
-                <audio controls><source src=""></audio>
-                <div class="vote-bar" style="width: 36%;"></div>
-                <p class="votes">118 votes</p>
-            </div>
-        </li>
-
-    </ol>
+  <!-- Repeat for all 10 -->
 </section>
 
-<!-- LAST WEEK'S TOP 10 -->
-<section class="top10 last-week">
-    <h2>📻 Last Week’s Top 10</h2>
-
-    <ol class="chart-list">
-
-        <li>
-            <div class="track-card">
-                <span class="rank">1</span>
-                <h3>Crystal Pulse – Ember Rae</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">301 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">2</span>
-                <h3>Digital Mirage – Kade Solis</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">276 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">3</span>
-                <h3>Shadow Frequency – Mira Lux</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">244 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">4</span>
-                <h3>Neon Drift – Aero Vynn</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">221 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">5</span>
-                <h3>Pulse Runner – Juno Vale</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">198 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">6</span>
-                <h3>Static Bloom – Rhea Vox</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">176 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">7</span>
-                <h3>Electric Veil – Orion Kess</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">159 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">8</span>
-                <h3>Holo Bloom – Sera Nox</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">141 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">9</span>
-                <h3>Night Circuit – Vyn Aris</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">128 votes</p>
-            </div>
-        </li>
-
-        <li>
-            <div class="track-card">
-                <span class="rank">10</span>
-                <h3>Echo Bloom – Lira Voss</h3>
-                <audio controls><source src=""></audio>
-                <p class="votes">112 votes</p>
-            </div>
-        </li>
-
-    </ol>
+<!-- LAST WEEK -->
+<section>
+  <h3>📻 Last Week’s Top 10</h3>
+  <div class="track-card">
+    <h4>#1 Crystal Pulse – Ember Rae</h4>
+    <audio controls><source src=""></audio>
+  </div>
 </section>
 
-<!-- ALL SUBMISSIONS -->
-<section class="all-submissions">
-    <h2>🎧 All Submissions</h2>
+<!-- SUBMISSIONS PLACEHOLDER -->
+<section>
+  <h3>🎧 All Submissions</h3>
 
-    <div class="submission-grid">
-
-        <div class="track-card">
-            <h3>Crystal Pulse – Ember Rae</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">94 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Digital Mirage – Kade Solis</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">87 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Shadow Frequency – Mira Lux</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">76 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Neon Drift – Aero Vynn</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">69 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Pulse Runner – Juno Vale</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">63 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Static Bloom – Rhea Vox</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">58 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Electric Veil – Orion Kess</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">52 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Holo Bloom – Sera Nox</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">47 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Night Circuit – Vyn Aris</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">41 votes</p>
-        </div>
-
-        <div class="track-card">
-            <h3>Echo Bloom – Lira Voss</h3>
-            <audio controls><source src=""></audio>
-            <p class="votes">38 votes</p>
-        </div>
-
-    </div>
+  <div class="submission-placeholder">
+    No submissions yet. Submit your track to appear here.
+  </div>
 </section>
 
 </main>
 
-<!-- COUNTDOWN SCRIPT -->
+<footer>
+  <p>&copy; Ninja Talks</p>
+</footer>
+
 <script>
-// Utility: get next occurrence of a weekly time
-function nextWeeklyTime(day, hour, minute, second, offsetHours = 0) {
-    const now = new Date();
-    const target = new Date();
-
-    const days = ["sun","mon","tue","wed","thu","fri","sat"];
-    const targetDay = days.indexOf(day.toLowerCase());
-
-    target.setUTCHours(hour - offsetHours, minute, second, 0);
-    target.setUTCDate(now.getUTCDate() + ((targetDay - now.getUTCDay() + 7) % 7));
-
-    if (target < now) {
-        target.setUTCDate(target.getUTCDate() + 7);
-    }
-
-    return target;
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
 }
 
-function updateCountdown(elementId, targetTime) {
-    const now = new Date();
-    const diff = targetTime - now;
+/* COUNTDOWN LOGIC */
+function nextWeekly(day, hour, minute) {
+  const now = new Date();
+  const target = new Date();
+  const days = ["sun","mon","tue","wed","thu","fri","sat"];
+  const targetDay = days.indexOf(day);
 
-    if (diff <= 0) {
-        document.getElementById(elementId).innerText = "Closed";
-        return;
-    }
+  target.setHours(hour - 2, minute, 0, 0);
+  target.setDate(now.getDate() + ((targetDay - now.getDay() + 7) % 7));
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById(elementId).innerText =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (target < now) target.setDate(target.getDate() + 7);
+  return target;
 }
 
-const SAST_OFFSET = 2;
+function updateCountdown(id, target) {
+  const now = new Date();
+  const diff = target - now;
 
-const submissionClose = nextWeeklyTime("thu", 0, 0, 0, SAST_OFFSET);
-const votingClose = nextWeeklyTime("thu", 12, 0, 0, SAST_OFFSET);
-const liveStart = nextWeeklyTime("fri", 20, 0, 0, SAST_OFFSET);
+  if (diff <= 0) {
+    document.getElementById(id).innerText = "Closed";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById(id).innerText = `${d}d ${h}h ${m}m ${s}s`;
+}
 
 setInterval(() => {
-    updateCountdown("submissionCountdown", submissionClose);
-    updateCountdown("votingCountdown", votingClose);
-    updateCountdown("liveCountdown", liveStart);
+  updateCountdown("submissionCountdown", nextWeekly("thu", 0, 0));
+  updateCountdown("votingCountdown", nextWeekly("thu", 12, 0));
+  updateCountdown("liveCountdown", nextWeekly("fri", 20, 0));
 }, 1000);
 </script>
 
