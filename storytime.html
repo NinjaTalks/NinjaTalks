@@ -2,173 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Story Time – Ninja Talks</title>
+  <title>Ninja Talks – Storytime</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
-  <style>
-    :root {
-      --purple-dark: #3a0ca3;
-      --purple: #7209b7;
-      --purple-light: #b5179e;
-      --pink: #f72585;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #cccccc;
-      --black: #1a1a1a;
-      --font-main: 'Segoe UI', Arial, sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: var(--font-main);
-      background: var(--gray-light);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    /* HEADER + HAMBURGER (Step 1) */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      width: 260px;
-      height: 100%;
-      background: var(--purple-dark);
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu ul { list-style:none; padding:0; }
-    .side-menu li { margin:20px 0; text-align:center; }
-    .side-menu a {
-      color:var(--white);
-      font-size:20px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero {
-      text-align:center;
-      padding:60px 20px;
-      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
-      color: var(--white);
-      border-bottom-left-radius:20px;
-      border-bottom-right-radius:20px;
-      margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .hero-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:var(--white);
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
-    section { margin-bottom:30px; }
-
-    .content-block {
-      background:#fafafa;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    .story-card {
-      background:#ffffff;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-      margin-bottom:20px;
-    }
-
-    .story-card h4 {
-      margin-bottom:10px;
-      color:var(--purple);
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      background:var(--purple-dark);
-      color:var(--white);
-    }
-  </style>
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
 </head>
 
 <body>
 
-<!-- HEADER (Step 1) -->
+<!-- HEADER -->
 <header>
   <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
 
@@ -178,7 +23,7 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU (Step 2) -->
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -191,37 +36,85 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h2 class="hero-title">Story Time</h2>
-  <p class="hero-tagline">Real voices. Real stories. Shared with heart.</p>
-</section>
-
 <main>
 
-  <!-- MAIN CONTENT (cleaned + modernized) -->
-  <section class="content-block">
-    <h3>Welcome to Story Time</h3>
-    <p>
-      This is where our community shares personal experiences, reflections, and moments that shaped them.  
-      Every story is a reminder that we’re all connected — and that your voice matters.
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
+  <h2 class="hero-title">Storytime</h2>
+  <p class="hero-tagline">Your truth matters. Your voice matters.</p>
+</section>
 
-  <!-- Example Story Cards (your content goes here) -->
-  <section class="story-card">
-    <h4>🌟 Featured Story</h4>
+<!-- ABOUT STORYTIME -->
+<section>
+  <h3>What Storytime Really Is</h3>
+  <div class="info-box">
     <p>
-      Your featured story content will go here. You can add multiple story cards, each with a title and text.
+      Storytime is a space for real people to share real experiences — the kind that
+      shape you, break you, rebuild you, or change the direction of your life. These
+      stories are often raw, emotional, and deeply personal. You are free to share
+      as much or as little as you feel comfortable with. Nothing is sugar‑coated here.
     </p>
-  </section>
 
-  <section class="story-card">
-    <h4>📝 Community Story</h4>
     <p>
-      Add another story here. This layout keeps everything clean, readable, and consistent with the rest of the site.
+      Your story will <strong>not</strong> be posted publicly on this website. Instead, it is
+      shared privately with the Ninja Talks team. If selected, you will be invited to
+      join us for a TikTok Live interview where we talk through your journey together.
     </p>
-  </section>
+
+    <p>
+      Storytime is about honesty, healing, connection, and giving people a voice —
+      especially those who have felt unheard.
+    </p>
+  </div>
+</section>
+
+<!-- RULES + TRIGGER WARNINGS -->
+<section>
+  <h3>Rules & Trigger Warnings</h3>
+
+  <div class="info-box">
+    <p>⚠️ <strong>Trigger Warning:</strong> Stories may involve trauma, abuse, mental health struggles, addiction, grief, violence, or other heavy topics. Please take care of yourself while reading or participating.</p>
+
+    <p>✔ You may share your story in as much detail as you feel comfortable with.</p>
+    <p>✔ Stories must be <strong>true and personal</strong> — this is not a fiction platform.</p>
+    <p>✔ No graphic or explicit descriptions of violence or self‑harm.</p>
+    <p>✔ Do not include identifying details of other people without their consent.</p>
+    <p>✔ Only <strong>one story per person</strong> may be submitted each week.</p>
+    <p>✔ Stories are <strong>not displayed publicly</strong> — they are used only for TikTok Live interviews.</p>
+  </div>
+</section>
+
+<!-- SUBMIT STORY -->
+<section>
+  <h3>Submit Your Story</h3>
+  <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd0_P1_E80ulZzOlA8IF06-bEjB9mz3Ukp0LLoW3UE_UDxCJQ/viewform" target="_blank">
+    Share Your Story
+  </a>
+</section>
+
+<!-- THIS WEEK'S STORY -->
+<section>
+  <h3>📅 This Week’s Story</h3>
+
+  <div class="info-box">
+    <p><strong>Guest:</strong> <span id="thisWeekName">To Be Announced</span></p>
+    <p><strong>Topic:</strong> <span id="thisWeekTopic">Revealed on TikTok Live</span></p>
+    <p>Join us this Friday at 8 PM SAST on TikTok Live.</p>
+  </div>
+</section>
+
+<!-- LAST WEEK'S STORY -->
+<section>
+  <h3>🎥 Last Week’s Story</h3>
+
+  <div class="info-box">
+    <p><strong>Guest:</strong> <span id="lastWeekName">Previous Guest</span></p>
+    <p><strong>Topic:</strong> <span id="lastWeekTopic">Their personal journey</span></p>
+    <p><strong>Watch the interview:</strong></p>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
 
 </main>
 
@@ -229,7 +122,6 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- SCRIPT (Step 3) -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
