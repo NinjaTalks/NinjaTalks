@@ -1,6 +1,6 @@
-/* ---------------------------------------------------
+/* --------------------------------------------------
    GLOBAL VARIABLES
---------------------------------------------------- */
+-------------------------------------------------- */
 :root {
   --purple-dark: #3a0ca3;
   --purple: #7209b7;
@@ -13,10 +13,14 @@
   --font-main: 'Segoe UI', Arial, sans-serif;
 }
 
-/* ---------------------------------------------------
+/* --------------------------------------------------
    RESET
---------------------------------------------------- */
-* { margin:0; padding:0; box-sizing:border-box; }
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: var(--font-main);
@@ -25,9 +29,9 @@ body {
   line-height: 1.6;
 }
 
-/* ---------------------------------------------------
-   HEADER + HAMBURGER
---------------------------------------------------- */
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
 header {
   background: linear-gradient(90deg, var(--purple-dark), var(--purple));
   padding: 20px;
@@ -65,54 +69,63 @@ nav {
   cursor: pointer;
 }
 
-/* ---------------------------------------------------
-   SLIDE-IN MENU
---------------------------------------------------- */
+/* --------------------------------------------------
+   SLIDE-IN MENU (FULLY FIXED)
+-------------------------------------------------- */
 .side-menu {
   position: fixed;
   top: 0;
+  left: 0;
   width: 260px;
   height: 100%;
   background: var(--purple-dark);
   padding-top: 80px;
   transform: translateX(-260px);
   transition: transform 0.3s ease;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .side-menu.open {
   transform: translateX(0);
 }
 
-.side-menu ul { list-style:none; padding:0; }
-.side-menu li { margin:20px 0; text-align:center; }
-.side-menu a {
-  color:var(--white);
-  font-size:20px;
-  text-decoration:none;
-  font-weight:600;
+.side-menu ul {
+  list-style: none;
+  padding: 0;
 }
 
-/* ---------------------------------------------------
-   HERO
---------------------------------------------------- */
+.side-menu li {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.side-menu a {
+  color: var(--white);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
+   HERO SECTION
+-------------------------------------------------- */
 .hero {
-  text-align:center;
-  padding:60px 20px;
+  text-align: center;
+  padding: 60px 20px;
   background: linear-gradient(180deg, var(--purple-dark), var(--purple));
   color: var(--white);
-  border-bottom-left-radius:20px;
-  border-bottom-right-radius:20px;
-  margin-bottom:40px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 40px;
 }
 
 .hero-logo {
-  height:120px;
-  width:120px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:20px;
-  border:4px solid var(--white);
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 4px solid var(--white);
 }
 
 .hero-title {
@@ -126,29 +139,117 @@ nav {
   opacity: 0.9;
 }
 
-/* ---------------------------------------------------
-   MAIN CONTENT WRAPPER
---------------------------------------------------- */
-main {
-  max-width:900px;
-  margin:40px auto;
-  padding:20px;
-  background:var(--white);
-  border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+/* LIVE BADGE */
+.live-badge {
+  display: inline-block;
+  background: var(--pink);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  margin-top: 15px;
+  font-size: 16px;
 }
 
-section { margin-bottom:30px; }
+/* --------------------------------------------------
+   MAIN CONTENT
+-------------------------------------------------- */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
+h2, h3 {
+  color: var(--purple-dark);
+  margin-bottom: 10px;
+}
 
-/* ---------------------------------------------------
+section {
+  margin-bottom: 30px;
+}
+
+/* --------------------------------------------------
+   CARDS & GRIDS
+-------------------------------------------------- */
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.highlight-card {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* --------------------------------------------------
+   INFO BOXES
+-------------------------------------------------- */
+.info-box {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid var(--purple);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* --------------------------------------------------
+   BUTTONS
+-------------------------------------------------- */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: var(--purple);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tiktok-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 24px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
    FOOTER
---------------------------------------------------- */
+-------------------------------------------------- */
 footer {
-  text-align:center;
-  padding:20px;
-  margin-top:40px;
-  background:var(--purple-dark);
-  color:var(--white);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background: var(--purple-dark);
+  color: var(--white);
+}
+
+/* --------------------------------------------------
+   RESPONSIVE FIXES
+-------------------------------------------------- */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 32px;
+  }
+  .hero-logo {
+    height: 90px;
+    width: 90px;
+  }
 }
