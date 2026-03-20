@@ -4,145 +4,250 @@
   <meta charset="UTF-8">
   <title>Contact – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
+  <style>
+    :root {
+      --purple-dark: #3a0ca3;
+      --purple: #7209b7;
+      --purple-light: #b5179e;
+      --pink: #f72585;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray: #cccccc;
+      --black: #1a1a1a;
+      --font-main: 'Segoe UI', Arial, sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--gray-light);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* HEADER + HAMBURGER (Step 1) */
+    header {
+      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+      padding: 20px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: block;
+      font-size: 32px;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--purple-dark);
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .side-menu.open {
+      transform: translateX(0);
+    }
+
+    .side-menu ul { list-style:none; padding:0; }
+    .side-menu li { margin:20px 0; text-align:center; }
+    .side-menu a {
+      color:var(--white);
+      font-size:20px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* HERO */
+    .hero {
+      text-align:center;
+      padding:60px 20px;
+      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
+      color: var(--white);
+      border-bottom-left-radius:20px;
+      border-bottom-right-radius:20px;
+      margin-bottom:40px;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+      background:var(--white);
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
+    section { margin-bottom:30px; }
+
+    .content-block {
+      background:#fafafa;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    /* CONTACT FORM */
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      margin-top:10px;
+    }
+
+    input, textarea {
+      padding:12px;
+      border-radius:6px;
+      border:1px solid var(--gray);
+      font-size:16px;
+      width:100%;
+    }
+
+    textarea {
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .submit-btn {
+      padding:12px 24px;
+      background:var(--purple);
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+      width:fit-content;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      background:var(--purple-dark);
+      color:var(--white);
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <nav>
+<!-- HEADER (Step 1) -->
+<header>
+  <div class="logo-container">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <h1>Ninja Talks</h1>
+  </div>
 
-      <!-- Logo -->
-      <div class="logo-container">
-        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-        <h1>Ninja Talks</h1>
-      </div>
+  <nav>
+    <div></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+</header>
 
-      <!-- Hamburger -->
-      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+<!-- SLIDE-IN MENU (Step 2) -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="/NinjaTalks/index.html">Home</a></li>
+    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
+    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
+    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
+    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
+    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
+    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
+  </ul>
+</div>
 
-      <!-- Mobile Menu -->
-      <div class="side-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="neurodiversity.html">Neurodiversity</a></li>
-          <li><a href="wellness.html">Mind & Body</a></li>
-          <li><a href="storytime.html">Story Time</a></li>
-          <li><a href="fellowship.html">Fellowship</a></li>
-          <li><a href="music.html">AI Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <h2 class="hero-title">Contact Us</h2>
+  <p class="hero-tagline">We’d love to hear from you.</p>
+</section>
 
-      <!-- Desktop Menu -->
-      <ul class="desktop-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind & Body</a></li>
-        <li><a href="storytime.html">Story Time</a></li>
-        <li><a href="fellowship.html">Fellowship</a></li>
-        <li><a href="music.html">AI Music</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+<main>
 
-    </nav>
-  </header>
+  <!-- MAIN CONTENT (cleaned + modernized) -->
+  <section class="content-block">
+    <h3>Get in Touch</h3>
+    <p>
+      Whether you have questions, feedback, or want to collaborate, feel free to reach out.  
+      Fill out the form below and we’ll get back to you soon.
+    </p>
 
-  <!-- MAIN CONTENT -->
-  <main>
+    <!-- CONTACT FORM -->
+    <form action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button class="submit-btn" type="submit">Send Message</button>
+    </form>
+  </section>
 
-    <section>
-      <h2>Contact Us</h2>
-      <p>If you’d like to reach out to Ninja Talks for General Enquiries, Neurodivergent Enquiries, Mind and Body Enquiries, AI Music Submissions, Collaborations, or Community questions, you’ll find all the details below.</p>
-    </section>
+</main>
 
-    <section>
-      <h3>Contact Details</h3>
+<footer>
+  <p>&copy; Ninja Talks</p>
+</footer>
 
-      <p><strong>Email (general):</strong> info@ninjatalks.co.za</p>
-      <p><strong>Email (Neuro):</strong> neuro@ninjatalks.co.za</p>
-      <p><strong>Email (Mind and Body):</strong> mindbody@ninjatalks.co.za</p>
-      <p><strong>Email (Storytime):</strong> storytime@ninjatalks.co.za</p>
-      <p><strong>Email (AI Music submissions):</strong> aiwebsite@ninjatalks.co.za</p>
-      
-      <p><strong>TikTok:</strong> 
-        <a href="https://www.tiktok.com/@ninjatalkshost" target="_blank">
-          https://www.tiktok.com/@ninjatalkshost
-        </a>
-      </p>
-
-      <p><strong>YouTube:</strong> 
-        <a href="https://www.youtube.com/@NINJATALKS-LIVE" target="_blank">
-          https://www.youtube.com/@NINJATALKS-LIVE
-        </a>
-      </p>
-
-      <p><strong>Facebook:</strong> 
-        <a href="https://facebook.com/ninjatalkslive" target="_blank">
-          facebook.com/ninjatalkslive
-        </a>
-      </p>
-
-      <p><strong>Instagram:</strong> 
-        <a href="https://instagram.com/ninjatalkslive" target="_blank">
-          instagram.com/ninjatalkslive
-        </a>
-      </p>
-
-      <!-- SOCIAL ICON BAR -->
-      <div class="social-icons">
-
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@ninjatalkshost" target="_blank" class="icon tiktok" aria-label="TikTok">
-          <svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12.7 2h3.1c.2 1.6 1.3 3 2.8 3.6v3.2c-1.1-.1-2.2-.4-3.2-.9v6.7c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.3 0 .7 0 1 .1v3.2c-.3-.1-.6-.1-1-.1-1.5 0-2.8 1.3-2.8 2.8S9.3 18 10.8 18s2.8-1.3 2.8-2.8V2z"/>
-          </svg>
-        </a>
-
-        <!-- YouTube -->
-        <a href="https://www.youtube.com/@NINJATALKS-LIVE" target="_blank" class="icon youtube" aria-label="YouTube">
-          <svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M10 15l5.2-3L10 9v6zm12-3c0-2-.2-3.3-.5-4.3-.3-.9-1-1.6-1.9-1.9C18.6 5.2 12 5.2 12 5.2s-6.6 0-7.6.6c-.9.3-1.6 1-1.9 1.9C2.2 8.7 2 10 2 12s.2 3.3.5 4.3c.3.9 1 1.6 1.9 1.9 1 .4 7.6.4 7.6.4s6.6 0 7.6-.4c.9-.3 1.6-1 1.9-1.9.3-1 .5-2.3.5-4.3z"/>
-          </svg>
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://facebook.com/ninjatalkslive" target="_blank" class="icon facebook" aria-label="Facebook">
-          <svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M13 3h4V0h-4c-3.3 0-6 2.7-6 6v3H4v4h3v11h4V13h3l1-4h-4V6c0-1.1.9-2 2-2z"/>
-          </svg>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://instagram.com/ninjatalkslive" target="_blank" class="icon instagram" aria-label="Instagram">
-          <svg viewBox="0 0 24 24">
-            <path fill="currentColor" d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zm4.8-8.9a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
-          </svg>
-        </a>
-
-      </div>
-    </section>
-
-    <section>
-      <h3>What to Include</h3>
-
-      <p><strong>For Neurodivergent Stories:</strong> Your name (or alias), topic, and comfort level.</p>
-      <p><strong>For Mind and Body Wellness:</strong> Your name (or alias), topic, and comfort level.</p>
-      <p><strong>For Life Stories:</strong> Your name (or alias), topic, and comfort level.</p>
-      <p><strong>For AI Music:</strong> Artist name, track title, link, and rights confirmation.</p>
-      <p><strong>For collaboration:</strong> Who you are and how you’d like to work together.</p>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; Ninja Talks</p>
-  </footer>
-
-  <!-- JAVASCRIPT -->
-  <script src="assets/js/main.js"></script>
+<!-- SCRIPT (Step 3) -->
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
