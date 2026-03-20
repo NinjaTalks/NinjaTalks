@@ -51,11 +51,6 @@ header h1 {
   gap: 12px;
 }
 
-.logo {
-  height: 90px;
-  width: 90px;
-}
-
 nav {
   display: flex;
   justify-content: flex-end;
