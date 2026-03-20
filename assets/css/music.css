@@ -38,6 +38,15 @@ section {
 }
 
 /* ---------------------------------------------------
+   LOGO
+--------------------------------------------------- */
+
+.logo {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+/* ---------------------------------------------------
    HERO
 --------------------------------------------------- */
 
@@ -99,54 +108,4 @@ section {
 }
 
 /* ---------------------------------------------------
-   TOP 10 LISTS
---------------------------------------------------- */
-
-.chart-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.chart-list li {
-    margin-bottom: 20px;
-}
-
-.rank {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #ff0066;
-    margin-right: 10px;
-}
-
-/* Vote bar */
-.vote-bar {
-    height: 10px;
-    background: #ff0066;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-/* ---------------------------------------------------
-   ALL SUBMISSIONS GRID
---------------------------------------------------- */
-
-.submission-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-/* ---------------------------------------------------
-   RESPONSIVE
---------------------------------------------------- */
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    section {
-        padding: 40px 15px;
-    }
-}
+   TOP
