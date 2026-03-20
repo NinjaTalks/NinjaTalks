@@ -6,25 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
-  <link rel="stylesheet" href="/NinjaTalks/assets/css/music.css">
+
+  <style>
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #3a0ca3;
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    .side-menu.open { transform: translateX(0); }
+
+    .track-card {
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
-
-  <nav>
-    <div></div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </nav>
+  <nav><button class="menu-toggle" onclick="toggleMenu()">☰</button></nav>
 </header>
 
-<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -39,165 +56,51 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero">
   <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
-  <h2 class="hero-title">AI Music Charts</h2>
-  <p class="hero-tagline">Submit. Vote. Rise to the Top 10.</p>
+  <h2 class="hero-title">AI Music</h2>
+  <p class="hero-tagline">Creativity meets community.</p>
 </section>
 
-<!-- WEEKLY SCHEDULE -->
 <section>
-  <h3>Weekly Schedule</h3>
-
-  <div class="schedule-box">
-    <h4>📥 Submissions</h4>
-    <p><strong>Open:</strong> Saturday 12:00 AM</p>
-    <p><strong>Close:</strong> Thursday 12:00 AM</p>
-    <p>Time until submissions close:</p>
-    <p id="submissionCountdown" class="countdown"></p>
-  </div>
-
-  <div class="schedule-box">
-    <h4>🗳 Voting</h4>
-    <p><strong>Open:</strong> Saturday 12:00 AM</p>
-    <p><strong>Close:</strong> Thursday 12:00 PM</p>
-    <p>Time until voting closes:</p>
-    <p id="votingCountdown" class="countdown"></p>
-  </div>
-
-  <div class="schedule-box">
-    <h4>🎤 TikTok Live</h4>
-    <p><strong>Starts:</strong> Friday 8:00 PM SAST</p>
-    <p>Time until live show:</p>
-    <p id="liveCountdown" class="countdown"></p>
-    <p>The Top 10 tracks will be played live on TikTok every Friday.</p>
+  <h3>Top 10 Tracks</h3>
+  <div id="trackList">
+    <!-- Your Apps Script will populate this -->
   </div>
 </section>
 
-<!-- RULES -->
 <section>
-  <h3>Rules</h3>
-
-  <div class="schedule-box">
-    <p>✔ Only <strong>1 song per artist</strong> may be submitted each week.</p>
-    <p>✔ Only <strong>1 vote per person</strong> is allowed each week.</p>
-    <p>✔ Any additional submissions or votes will not be counted.</p>
+  <h3>Submission Rules</h3>
+  <div class="info-box">
+    <p>✔ AI Music rights remain with the artist.</p>
+    <p>✔ Ninja Talks may use submitted music on social media platforms.</p>
+    <p>✔ No copyrighted samples.</p>
+    <p>✔ No hateful or explicit content.</p>
   </div>
 </section>
 
-<!-- SUBMIT -->
 <section>
-  <h3>Submit Your Track</h3>
-  <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSegIIkvLuzKWEcD3OShmVuw3Tlwv5IKu7HvcXtavx50C-lXow/viewform" target="_blank">Submit Your Track</a>
-</section>
-
-<!-- VOTE -->
-<section>
-  <h3>Vote for Your Favourite Track</h3>
-  <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSd0_P1_E80ulZzOlA8IF06-bEjB9mz3Ukp0LLoW3UE_UDxCJQ/viewform" target="_blank">Vote Now</a>
-</section>
-
-<!-- TOP SONG -->
-<section>
-  <h3>🎵 Top Song of the Week</h3>
-  <div class="track-card">
-    <h4>Midnight Echo – Nova Lane</h4>
-    <audio controls><source src=""></audio>
-    <p><strong>312 votes</strong></p>
+  <h3>📅 This Week’s Theme</h3>
+  <div class="info-box">
+    <p><strong>Theme:</strong> <span id="thisWeekTheme">To Be Announced</span></p>
   </div>
 </section>
 
-<!-- TOP 10 -->
 <section>
-  <h3>🔥 This Week’s Top 10</h3>
-
-  <div class="track-card">
-    <h4>#1 Midnight Echo – Nova Lane</h4>
-    <audio controls><source src=""></audio>
-    <div class="vote-bar" style="width:95%"></div>
-  </div>
-
-  <div class="track-card">
-    <h4>#2 Electric Bloom – Jax Orion</h4>
-    <audio controls><source src=""></audio>
-    <div class="vote-bar" style="width:88%"></div>
-  </div>
-
-  <div class="track-card">
-    <h4>#3 Neon Skies – Lira Voss</h4>
-    <audio controls><source src=""></audio>
-    <div class="vote-bar" style="width:80%"></div>
-  </div>
-
-  <!-- Continue for all 10 -->
-</section>
-
-<!-- LAST WEEK -->
-<section>
-  <h3>📻 Last Week’s Top 10</h3>
-  <div class="track-card">
-    <h4>#1 Crystal Pulse – Ember Rae</h4>
-    <audio controls><source src=""></audio>
-  </div>
-</section>
-
-<!-- SUBMISSIONS PLACEHOLDER -->
-<section>
-  <h3>🎧 All Submissions</h3>
-
-  <div class="submission-placeholder">
-    No submissions yet. Submit your track to appear here.
+  <h3>🎥 Last Week’s Show</h3>
+  <div class="info-box">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" allowfullscreen></iframe>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <p>&copy; Ninja Talks</p>
-</footer>
+<footer><p>&copy; Ninja Talks</p></footer>
 
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
-
-/* COUNTDOWN LOGIC */
-function nextWeekly(day, hour, minute) {
-  const now = new Date();
-  const target = new Date();
-  const days = ["sun","mon","tue","wed","thu","fri","sat"];
-  const targetDay = days.indexOf(day);
-
-  target.setHours(hour - 2, minute, 0, 0);
-  target.setDate(now.getDate() + ((targetDay - now.getDay() + 7) % 7));
-
-  if (target < now) target.setDate(target.getDate() + 7);
-  return target;
-}
-
-function updateCountdown(id, target) {
-  const now = new Date();
-  const diff = target - now;
-
-  if (diff <= 0) {
-    document.getElementById(id).innerText = "Closed";
-    return;
-  }
-
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff / (1000*60*60)) % 24);
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-
-  document.getElementById(id).innerText = `${d}d ${h}h ${m}m ${s}s`;
-}
-
-setInterval(() => {
-  updateCountdown("submissionCountdown", nextWeekly("thu", 0, 0));
-  updateCountdown("votingCountdown", nextWeekly("thu", 12, 0));
-  updateCountdown("liveCountdown", nextWeekly("fri", 20, 0));
-}, 1000);
 </script>
 
 </body>
