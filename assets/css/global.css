@@ -1,0 +1,175 @@
+/* ---------------------------------------------------
+   GLOBAL RESET
+--------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------------------------------------------------
+   GLOBAL THEME
+--------------------------------------------------- */
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: #0d0d0d;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------
+   GLOBAL CONTAINER
+--------------------------------------------------- */
+
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+/* ---------------------------------------------------
+   GLOBAL LOGO
+--------------------------------------------------- */
+
+.global-logo {
+    width: 100px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+/* ---------------------------------------------------
+   GLOBAL HEADINGS
+--------------------------------------------------- */
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------
+   GLOBAL TEXT
+--------------------------------------------------- */
+
+p {
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------
+   GLOBAL BUTTONS
+--------------------------------------------------- */
+
+.button,
+button {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #ff0066;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.button:hover,
+button:hover {
+    background: #ff3385;
+}
+
+/* ---------------------------------------------------
+   GLOBAL CARD STYLE
+--------------------------------------------------- */
+
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #262626;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------
+   GLOBAL GRID SYSTEM
+--------------------------------------------------- */
+
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ---------------------------------------------------
+   GLOBAL HERO SECTION
+--------------------------------------------------- */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #330033);
+    margin-bottom: 40px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* ---------------------------------------------------
+   GLOBAL FOOTER
+--------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE RULES
+--------------------------------------------------- */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+}
