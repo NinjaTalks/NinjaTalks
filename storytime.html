@@ -4,80 +4,237 @@
   <meta charset="UTF-8">
   <title>Story Time – Ninja Talks</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
+  <style>
+    :root {
+      --purple-dark: #3a0ca3;
+      --purple: #7209b7;
+      --purple-light: #b5179e;
+      --pink: #f72585;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray: #cccccc;
+      --black: #1a1a1a;
+      --font-main: 'Segoe UI', Arial, sans-serif;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--gray-light);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* HEADER + HAMBURGER (Step 1) */
+    header {
+      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+      padding: 20px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: block;
+      font-size: 32px;
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      width: 260px;
+      height: 100%;
+      background: var(--purple-dark);
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 999;
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    .side-menu.open {
+      transform: translateX(0);
+    }
+
+    .side-menu ul { list-style:none; padding:0; }
+    .side-menu li { margin:20px 0; text-align:center; }
+    .side-menu a {
+      color:var(--white);
+      font-size:20px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* HERO */
+    .hero {
+      text-align:center;
+      padding:60px 20px;
+      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
+      color: var(--white);
+      border-bottom-left-radius:20px;
+      border-bottom-right-radius:20px;
+      margin-bottom:40px;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-tagline {
+      font-size: 20px;
+      opacity: 0.9;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+      background:var(--white);
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
+    section { margin-bottom:30px; }
+
+    .content-block {
+      background:#fafafa;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .story-card {
+      background:#ffffff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom:20px;
+    }
+
+    .story-card h4 {
+      margin-bottom:10px;
+      color:var(--purple);
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+      background:var(--purple-dark);
+      color:var(--white);
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <nav>
+<!-- HEADER (Step 1) -->
+<header>
+  <div class="logo-container">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <h1>Ninja Talks</h1>
+  </div>
 
-      <div class="logo-container">
-        <img src="assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
-        <h1>Ninja Talks</h1>
-      </div>
+  <nav>
+    <div></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+</header>
 
-      <button class="menu-toggle" aria-label="Open Menu">☰</button>
+<!-- SLIDE-IN MENU (Step 2) -->
+<div class="side-menu" id="sideMenu">
+  <ul>
+    <li><a href="/NinjaTalks/index.html">Home</a></li>
+    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
+    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
+    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
+    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
+    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
+    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
+  </ul>
+</div>
 
-      <div class="side-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="neurodiversity.html">Neurodiversity</a></li>
-          <li><a href="wellness.html">Mind & Body</a></li>
-          <li><a href="storytime.html">Story Time</a></li>
-          <li><a href="fellowship.html">Fellowship</a></li>
-          <li><a href="music.html">AI Music</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <h2 class="hero-title">Story Time</h2>
+  <p class="hero-tagline">Real voices. Real stories. Shared with heart.</p>
+</section>
 
-      <ul class="desktop-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="neurodiversity.html">Neurodiversity</a></li>
-        <li><a href="wellness.html">Mind & Body</a></li>
-        <li><a href="storytime.html">Story Time</a></li>
-        <li><a href="fellowship.html">Fellowship</a></li>
-        <li><a href="music.html">AI Music</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+<main>
 
-    </nav>
-  </header>
+  <!-- MAIN CONTENT (cleaned + modernized) -->
+  <section class="content-block">
+    <h3>Welcome to Story Time</h3>
+    <p>
+      This is where our community shares personal experiences, reflections, and moments that shaped them.  
+      Every story is a reminder that we’re all connected — and that your voice matters.
+    </p>
+  </section>
 
-  <main>
+  <!-- Example Story Cards (your content goes here) -->
+  <section class="story-card">
+    <h4>🌟 Featured Story</h4>
+    <p>
+      Your featured story content will go here. You can add multiple story cards, each with a title and text.
+    </p>
+  </section>
 
-    <section>
-      <h2>Story Time</h2>
-      <p>Story Time is where we go deep. These are real life stories—sometimes beautiful, sometimes painful, sometimes not suitable for sensitive viewers.</p>
-    </section>
+  <section class="story-card">
+    <h4>📝 Community Story</h4>
+    <p>
+      Add another story here. This layout keeps everything clean, readable, and consistent with the rest of the site.
+    </p>
+  </section>
 
-    <section>
-      <h3>What Kind of Stories?</h3>
-      <ul>
-        <li><strong>Life stories:</strong> Journeys of struggle, growth, and transformation.</li>
-        <li><strong>Hard topics:</strong> Trauma, abuse, addiction, grief, recovery.Some stories may be triggering. Not for sensitive viewers.</li>
-        <li><strong>Faith journeys:</strong> Moments where God felt close—or far.</li>
-        <li><strong>Unfiltered truth:</strong> Honest conversations without sugarcoating.</li>
-      </ul>
-    </section>
+</main>
 
-    <section>
-      <h3>Weekly Focus (Thursdays 8PM–10PM SAST)</h3>
+<footer>
+  <p>&copy; Ninja Talks</p>
+</footer>
 
-      <h4>Last Week’s Story Theme</h4>
-      <p><em>Update weekly with last week’s story.</em></p>
-
-      <h4>This Week’s Story Theme</h4>
-      <p><em>Update weekly with this week’s story.</em></p>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; Ninja Talks</p>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
+<!-- SCRIPT (Step 3) -->
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
