@@ -5,7 +5,6 @@
   <title>Ninja Talks – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS -->
   <style>
     :root {
       --purple-dark: #3a0ca3;
@@ -28,7 +27,6 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
     header {
       background: linear-gradient(90deg, var(--purple-dark), var(--purple));
       padding: 20px;
@@ -66,7 +64,6 @@
       cursor: pointer;
     }
 
-    /* SLIDE-IN MENU */
     .side-menu {
       position: fixed;
       top: 0;
@@ -92,7 +89,6 @@
       font-weight:600;
     }
 
-    /* HERO */
     .hero {
       text-align:center;
       padding:60px 20px;
@@ -123,7 +119,6 @@
       opacity: 0.9;
     }
 
-    /* LIVE BADGE */
     .live-badge {
       display: inline-block;
       background: #f72585;
@@ -135,7 +130,6 @@
       font-size: 16px;
     }
 
-    /* MAIN CONTENT */
     main {
       max-width:900px;
       margin:40px auto;
@@ -201,7 +195,6 @@
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
@@ -214,7 +207,6 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -229,17 +221,13 @@
 
 <main>
 
-  <!-- HERO -->
   <section class="hero">
     <img src="/NinjaTalks/assets/images/No background logo.png" alt="Ninja Talks Logo">
     <h2 class="hero-title">Welcome to Ninja Talks</h2>
     <p class="hero-tagline">Community, Creativity, Connection — join the movement.</p>
-
-    <!-- LIVE INDICATOR -->
     <div id="liveIndicator"></div>
   </section>
 
-  <!-- HIGHLIGHTS -->
   <section>
     <h3>This Week’s Highlights</h3>
     <div class="highlight-grid">
@@ -263,7 +251,6 @@
     </div>
   </section>
 
-  <!-- WEEKLY SCHEDULE -->
   <section>
     <h3>Weekly Live Schedule</h3>
     <div class="highlight-grid">
@@ -275,13 +262,24 @@
     </div>
   </section>
 
-  <!-- SOCIAL -->
+  <section>
+    <h3>Community Guidelines</h3>
+    <div class="highlight-card">
+      <p>✔ Respect the host</p>
+      <p>✔ Stay on topic</p>
+      <p>✔ Violators will be muted, blocked, or kicked</p>
+      <p>✔ No judgment</p>
+      <p>✔ Follow the host and anyone in the boxes</p>
+      <p>✔ Like and share the live</p>
+      <p>✔ AI Music rights remain with the artist, but Ninja Talks may use the music on social media</p>
+    </div>
+  </section>
+
   <section>
     <h3>From Our Socials</h3>
     <a class="tiktok-button" href="https://www.tiktok.com/@ninjatalkshost" target="_blank">See more on TikTok</a>
   </section>
 
-  <!-- YOUTUBE -->
   <section>
     <h3>Featured Video</h3>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/LT6rSH5FfXs" frameborder="0" allowfullscreen></iframe>
@@ -293,7 +291,6 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- LIVE STATUS SCRIPT -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
@@ -308,33 +305,4 @@ async function checkLiveStatus() {
     const options = { timeZone: 'Africa/Johannesburg' };
     const local = new Date(now.toLocaleString('en-US', options));
 
-    const day = local.getDay();
-    const hour = local.getHours();
-
-    let liveShow = null;
-
-    schedule.forEach(show => {
-      if (show.day === day && hour >= show.start && hour < show.end) {
-        liveShow = show.name;
-      }
-    });
-
-    const indicator = document.getElementById('liveIndicator');
-
-    if (liveShow) {
-      indicator.innerHTML = `<span class="live-badge">🔴 LIVE NOW — ${liveShow}</span>`;
-    } else {
-      indicator.innerHTML = ``;
-    }
-
-  } catch (err) {
-    console.error('Error loading live schedule:', err);
-  }
-}
-
-checkLiveStatus();
-setInterval(checkLiveStatus, 60000);
-</script>
-
-</body>
-</html>
+    const day = local
