@@ -2,160 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Neurodiversity – Ninja Talks</title>
+  <title>Ninja Talks – Neurodiversity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
-  <style>
-    :root {
-      --purple-dark: #3a0ca3;
-      --purple: #7209b7;
-      --purple-light: #b5179e;
-      --pink: #f72585;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #cccccc;
-      --black: #1a1a1a;
-      --font-main: 'Segoe UI', Arial, sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: var(--font-main);
-      background: var(--gray-light);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    /* HEADER + HAMBURGER (Step 1) */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      width: 260px;
-      height: 100%;
-      background: var(--purple-dark);
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu ul { list-style:none; padding:0; }
-    .side-menu li { margin:20px 0; text-align:center; }
-    .side-menu a {
-      color:var(--white);
-      font-size:20px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero {
-      text-align:center;
-      padding:60px 20px;
-      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
-      color: var(--white);
-      border-bottom-left-radius:20px;
-      border-bottom-right-radius:20px;
-      margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .hero-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:var(--white);
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
-    section { margin-bottom:30px; }
-
-    .content-block {
-      background:#fafafa;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      background:var(--purple-dark);
-      color:var(--white);
-    }
-  </style>
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
 </head>
 
 <body>
 
-<!-- HEADER (Step 1) -->
+<!-- HEADER -->
 <header>
   <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
 
@@ -165,7 +23,7 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU (Step 2) -->
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -178,31 +36,150 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h2 class="hero-title">Neurodiversity</h2>
-  <p class="hero-tagline">Understanding, celebrating, and supporting every mind.</p>
-</section>
-
 <main>
 
-  <!-- MAIN CONTENT (cleaned + modernized) -->
-  <section class="content-block">
-    <h3>What Is Neurodiversity?</h3>
-    <p>
-      Neurodiversity recognizes that every brain is unique. Differences in thinking, learning, and processing are natural variations of the human experience — not deficits.  
-    </p>
-    <p>
-      At Ninja Talks, we celebrate these differences and create space for open conversations, shared experiences, and community support.
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
+  <h2 class="hero-title">Neurodiversity</h2>
+  <p class="hero-tagline">Different minds. Different strengths. One community.</p>
+</section>
 
-  <section class="content-block">
-    <h3>Why It Matters</h3>
+<!-- WHAT NEURODIVERSITY IS -->
+<section>
+  <h3>Understanding Neurodiversity</h3>
+
+  <div class="info-box">
     <p>
-      Understanding neurodiversity helps build empathy, reduce stigma, and empower individuals to embrace their strengths. Whether you're neurodivergent or supporting someone who is, this space is for you.
+      Neurodiversity means that the human brain is naturally varied. People think, feel, learn,
+      process, and experience the world in different ways — and those differences are real,
+      valid, and meaningful. Neurodiversity includes autism, ADHD, dyslexia, dyspraxia,
+      Tourette’s, OCD, and many other neurological differences.
     </p>
-  </section>
+
+    <p>
+      It’s not about “fixing” people. It’s about understanding them. It’s about recognising
+      that the world is not built for every brain — and that doesn’t make those brains wrong.
+    </p>
+  </div>
+</section>
+
+<!-- TRIGGER WARNINGS -->
+<section>
+  <h3>Trigger Warnings</h3>
+
+  <div class="info-box">
+    <p>
+      ⚠️ Discussions around neurodiversity may include topics such as burnout, masking,
+      trauma, bullying, emotional overwhelm, sensory overload, and mental health struggles.
+      These experiences are real and often heavy. Please take care of yourself while reading
+      or participating.
+    </p>
+  </div>
+</section>
+
+<!-- LIVED EXPERIENCE -->
+<section>
+  <h3>The Lived Experience</h3>
+
+  <div class="info-box">
+    <p>
+      Being neurodivergent can mean feeling misunderstood, judged, or “too much” for the world.
+      It can mean working twice as hard to do things others find simple, or excelling in areas
+      others struggle with. It can mean sensory overload, emotional intensity, hyperfocus,
+      creativity, deep empathy, or constant exhaustion from trying to “fit in.”
+    </p>
+
+    <p>
+      Many neurodivergent people mask — hiding their true selves to avoid criticism or conflict.
+      Masking is exhausting. Here, you don’t have to mask. You don’t have to shrink yourself.
+      You are seen as you are.
+    </p>
+  </div>
+</section>
+
+<!-- CHILDREN'S EXPERIENCE -->
+<section>
+  <h3>How Children Experience Neurodiversity</h3>
+
+  <div class="info-box">
+    <p>
+      Neurodivergent children often feel the world more intensely. They may struggle with
+      loud noises, bright lights, unexpected changes, or social rules that don’t make sense
+      to them. They may be labelled “difficult,” “naughty,” “lazy,” or “too sensitive” when
+      in reality they are overwhelmed, misunderstood, or trying their best in a world that
+      doesn’t match how their brain works.
+    </p>
+
+    <p>
+      Many children grow up believing something is “wrong” with them because adults didn’t
+      understand their needs. At Ninja Talks, we believe children deserve patience, support,
+      and environments that honour their differences — not punish them.
+    </p>
+  </div>
+</section>
+
+<!-- PARENTS' EXPERIENCE -->
+<section>
+  <h3>How Parents Experience Neurodiversity</h3>
+
+  <div class="info-box">
+    <p>
+      Parenting a neurodivergent child can be beautiful, overwhelming, confusing, and isolating.
+      Many parents feel judged by others, blamed for their child’s behaviour, or pressured to
+      “fix” things that aren’t broken. They may struggle to find support, understanding, or
+      resources that actually help.
+    </p>
+
+    <p>
+      Parents often carry the emotional weight of advocating for their child — at school, at
+      home, in public, and sometimes even within their own families. You are not alone. Your
+      experience matters too.
+    </p>
+  </div>
+</section>
+
+<!-- NINJA TALKS APPROACH -->
+<section>
+  <h3>Ninja Talks & Neurodiversity</h3>
+
+  <div class="info-box">
+    <p>
+      Ninja Talks is a space where neurodivergent people — and the parents who support them —
+      are heard, respected, and understood. We don’t diagnose. We don’t judge. We don’t pretend
+      to have all the answers. What we offer is community, conversation, and a place where your
+      experiences are valid.
+    </p>
+
+    <p>
+      Through TikTok Lives, discussions, testimonies, and shared stories, we aim to create a
+      space where people can learn from each other, support each other, and feel less alone.
+    </p>
+  </div>
+</section>
+
+<!-- THIS WEEK'S TOPIC -->
+<section>
+  <h3>📅 This Week’s Neurodiversity Topic</h3>
+
+  <div class="info-box">
+    <p><strong>Topic:</strong> <span id="thisWeekTopic">To Be Announced</span></p>
+    <p><strong>Focus:</strong> <span id="thisWeekFocus">Revealed during the live session</span></p>
+    <p>Join us this week on TikTok Live.</p>
+  </div>
+</section>
+
+<!-- LAST WEEK'S TOPIC -->
+<section>
+  <h3>🎥 Last Week’s Topic</h3>
+
+  <div class="info-box">
+    <p><strong>Topic:</strong> <span id="lastWeekTopic">Last Week’s Discussion</span></p>
+    <p><strong>Focus:</strong> <span id="lastWeekFocus">Shared during the session</span></p>
+    <p><strong>Watch the replay:</strong></p>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
 
 </main>
 
@@ -210,7 +187,6 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- SCRIPT (Step 3) -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
