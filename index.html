@@ -58,7 +58,7 @@
 
 <main>
 
-  <!-- LIVE STATUS BANNER (now visible) -->
+  <!-- LIVE STATUS BANNER -->
   <div id="live-status"></div>
 
   <!-- HERO -->
@@ -107,11 +107,14 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- LIVE JSON LOADER (with cache-buster) -->
+<!-- SAFE LIVE JSON LOADER (GitHub-friendly, no flashing) -->
 <script>
-fetch("/live.json?cache=" + Date.now())
-  .then(response => response.json())
-  .then(data => {
+async function loadLiveStatus() {
+  try {
+    const response = await fetch("/NinjaTalks/live.json?cache=" + Date.now());
+    if (!response.ok) return; // silently fail if file missing
+
+    const data = await response.json();
     const container = document.getElementById("live-status");
 
     if (data.live) {
@@ -136,8 +139,12 @@ fetch("/live.json?cache=" + Date.now())
     } else {
       container.innerHTML = "";
     }
-  })
-  .catch(err => console.error("Error loading live.json:", err));
+  } catch (e) {
+    // fail silently — prevents flashing
+  }
+}
+
+loadLiveStatus();
 </script>
 
 </body>
