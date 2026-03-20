@@ -27,6 +27,7 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
     header {
       background: linear-gradient(90deg, var(--purple-dark), var(--purple));
       padding: 20px;
@@ -64,16 +65,18 @@
       cursor: pointer;
     }
 
+    /* FIXED MENU */
     .side-menu {
       position: fixed;
       top: 0;
+      left: 0;
       width: 260px;
       height: 100%;
       background: var(--purple-dark);
       padding-top: 80px;
       transform: translateX(-260px);
       transition: transform 0.3s ease;
-      z-index: 999;
+      z-index: 9999;
     }
 
     .side-menu.open {
@@ -89,6 +92,7 @@
       font-weight:600;
     }
 
+    /* HERO */
     .hero {
       text-align:center;
       padding:60px 20px;
@@ -130,6 +134,7 @@
       font-size: 16px;
     }
 
+    /* MAIN */
     main {
       max-width:900px;
       margin:40px auto;
@@ -197,12 +202,11 @@
 
 <header>
   <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
 
   <nav>
-    <div></div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </nav>
 </header>
@@ -221,69 +225,69 @@
 
 <main>
 
-  <section class="hero">
-    <img src="/NinjaTalks/assets/images/No background logo.png" alt="Ninja Talks Logo">
-    <h2 class="hero-title">Welcome to Ninja Talks</h2>
-    <p class="hero-tagline">Community, Creativity, Connection — join the movement.</p>
-    <div id="liveIndicator"></div>
-  </section>
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/No background logo.png">
+  <h2 class="hero-title">Welcome to Ninja Talks</h2>
+  <p class="hero-tagline">Community, Creativity, Connection — join the movement.</p>
+  <div id="liveIndicator"></div>
+</section>
 
-  <section>
-    <h3>This Week’s Highlights</h3>
-    <div class="highlight-grid">
-      <div class="highlight-card">
-        <h4>🎵 Featured Track</h4>
-        <p>Check out the top voted AI Music track of the week.</p>
-        <a href="/NinjaTalks/music.html" class="btn">Listen Now</a>
-      </div>
-
-      <div class="highlight-card">
-        <h4>📖 Story of the Week</h4>
-        <p>Discover a new voice in our Storytime community.</p>
-        <a href="/NinjaTalks/storytime.html" class="btn">Read More</a>
-      </div>
-
-      <div class="highlight-card">
-        <h4>🤝 Upcoming Fellowship</h4>
-        <p>Countdown to our next community service.</p>
-        <a href="/NinjaTalks/fellowship.html" class="btn">Join Us</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h3>Weekly Live Schedule</h3>
-    <div class="highlight-grid">
-      <div class="highlight-card"><strong>Monday:</strong> Neurodiversity — 8 PM to 10 PM</div>
-      <div class="highlight-card"><strong>Tuesday:</strong> Mind & Body Wellness — 8 PM to 10 PM</div>
-      <div class="highlight-card"><strong>Thursday:</strong> Storytime — 8 PM to 10 PM</div>
-      <div class="highlight-card"><strong>Friday:</strong> AI Music — 8 PM to 12 AM</div>
-      <div class="highlight-card"><strong>Sunday:</strong> Fellowship — 8 PM to 10 PM</div>
-    </div>
-  </section>
-
-  <section>
-    <h3>Community Guidelines</h3>
+<section>
+  <h3>This Week’s Highlights</h3>
+  <div class="highlight-grid">
     <div class="highlight-card">
-      <p>✔ Respect the host</p>
-      <p>✔ Stay on topic</p>
-      <p>✔ Violators will be muted, blocked, or kicked</p>
-      <p>✔ No judgment</p>
-      <p>✔ Follow the host and anyone in the boxes</p>
-      <p>✔ Like and share the live</p>
-      <p>✔ AI Music rights remain with the artist, but Ninja Talks may use the music on social media</p>
+      <h4>🎵 Featured Track</h4>
+      <p>Check out the top voted AI Music track of the week.</p>
+      <a href="/NinjaTalks/music.html" class="btn">Listen Now</a>
     </div>
-  </section>
 
-  <section>
-    <h3>From Our Socials</h3>
-    <a class="tiktok-button" href="https://www.tiktok.com/@ninjatalkshost" target="_blank">See more on TikTok</a>
-  </section>
+    <div class="highlight-card">
+      <h4>📖 Story of the Week</h4>
+      <p>Discover a new voice in our Storytime community.</p>
+      <a href="/NinjaTalks/storytime.html" class="btn">Read More</a>
+    </div>
 
-  <section>
-    <h3>Featured Video</h3>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/LT6rSH5FfXs" frameborder="0" allowfullscreen></iframe>
-  </section>
+    <div class="highlight-card">
+      <h4>🤝 Upcoming Fellowship</h4>
+      <p>Countdown to our next community service.</p>
+      <a href="/NinjaTalks/fellowship.html" class="btn">Join Us</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Weekly Live Schedule</h3>
+  <div class="highlight-grid">
+    <div class="highlight-card"><strong>Monday:</strong> Neurodiversity — 8 PM to 10 PM</div>
+    <div class="highlight-card"><strong>Tuesday:</strong> Mind & Body Wellness — 8 PM to 10 PM</div>
+    <div class="highlight-card"><strong>Thursday:</strong> Storytime — 8 PM to 10 PM</div>
+    <div class="highlight-card"><strong>Friday:</strong> AI Music — 8 PM to 12 AM</div>
+    <div class="highlight-card"><strong>Sunday:</strong> Fellowship — 8 PM to 10 PM</div>
+  </div>
+</section>
+
+<section>
+  <h3>Community Guidelines</h3>
+  <div class="highlight-card">
+    <p>✔ Respect the host</p>
+    <p>✔ Stay on topic</p>
+    <p>✔ Violators will be muted, blocked, or kicked</p>
+    <p>✔ No judgment</p>
+    <p>✔ Follow the host and anyone in the boxes</p>
+    <p>✔ Like and share the live</p>
+    <p>✔ AI Music rights remain with the artist, but Ninja Talks may use the music on social media</p>
+  </div>
+</section>
+
+<section>
+  <h3>From Our Socials</h3>
+  <a class="tiktok-button" href="https://www.tiktok.com/@ninjatalkshost" target="_blank">See more on TikTok</a>
+</section>
+
+<section>
+  <h3>Featured Video</h3>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/LT6rSH5FfXs" frameborder="0" allowfullscreen></iframe>
+</section>
 
 </main>
 
@@ -305,4 +309,33 @@ async function checkLiveStatus() {
     const options = { timeZone: 'Africa/Johannesburg' };
     const local = new Date(now.toLocaleString('en-US', options));
 
-    const day = local
+    const day = local.getDay();
+    const hour = local.getHours();
+
+    let liveShow = null;
+
+    schedule.forEach(show => {
+      if (show.day === day && hour >= show.start && hour < show.end) {
+        liveShow = show.name;
+      }
+    });
+
+    const indicator = document.getElementById('liveIndicator');
+
+    if (liveShow) {
+      indicator.innerHTML = `<span class="live-badge">🔴 LIVE NOW — ${liveShow}</span>`;
+    } else {
+      indicator.innerHTML = ``;
+    }
+
+  } catch (err) {
+    console.error('Error loading live schedule:', err);
+  }
+}
+
+checkLiveStatus();
+setInterval(checkLiveStatus, 60000);
+</script>
+
+</body>
+</html>
