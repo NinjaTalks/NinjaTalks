@@ -32,6 +32,10 @@ body {
   line-height: 1.6;
 }
 
+html, body {
+  transform: translateZ(0);
+}
+
 /* ===========================
    LOGO
    =========================== */
