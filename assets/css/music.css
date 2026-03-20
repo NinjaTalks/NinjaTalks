@@ -1,0 +1,152 @@
+/* ---------------------------------------------------
+   GLOBAL LAYOUT
+--------------------------------------------------- */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #0d0d0d;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #ff0066;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.button:hover {
+    background: #ff3385;
+}
+
+/* ---------------------------------------------------
+   HERO
+--------------------------------------------------- */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #330033);
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* ---------------------------------------------------
+   TRACK CARDS
+--------------------------------------------------- */
+
+.track-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #262626;
+}
+
+.track-card h3 {
+    margin-top: 0;
+}
+
+.track-card audio {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.votes {
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* ---------------------------------------------------
+   FEATURED TOP SONG
+--------------------------------------------------- */
+
+.featured {
+    background: linear-gradient(135deg, #330033, #660066);
+    border: 1px solid #aa00aa;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.highlight h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------
+   TOP 10 LISTS
+--------------------------------------------------- */
+
+.chart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chart-list li {
+    margin-bottom: 20px;
+}
+
+.rank {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ff0066;
+    margin-right: 10px;
+}
+
+/* Vote bar */
+.vote-bar {
+    height: 10px;
+    background: #ff0066;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* ---------------------------------------------------
+   ALL SUBMISSIONS GRID
+--------------------------------------------------- */
+
+.submission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+}
