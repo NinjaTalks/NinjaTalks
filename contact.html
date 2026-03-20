@@ -2,193 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact – Ninja Talks</title>
+  <title>Ninja Talks – Contact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
-  <style>
-    :root {
-      --purple-dark: #3a0ca3;
-      --purple: #7209b7;
-      --purple-light: #b5179e;
-      --pink: #f72585;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray: #cccccc;
-      --black: #1a1a1a;
-      --font-main: 'Segoe UI', Arial, sans-serif;
-    }
-
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: var(--font-main);
-      background: var(--gray-light);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    /* HEADER + HAMBURGER (Step 1) */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
-
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
-    .side-menu {
-      position: fixed;
-      top: 0;
-      width: 260px;
-      height: 100%;
-      background: var(--purple-dark);
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu ul { list-style:none; padding:0; }
-    .side-menu li { margin:20px 0; text-align:center; }
-    .side-menu a {
-      color:var(--white);
-      font-size:20px;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero {
-      text-align:center;
-      padding:60px 20px;
-      background: linear-gradient(180deg, var(--purple-dark), var(--purple));
-      color: var(--white);
-      border-bottom-left-radius:20px;
-      border-bottom-right-radius:20px;
-      margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    .hero-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      font-size: 20px;
-      opacity: 0.9;
-    }
-
-    /* MAIN CONTENT */
-    main {
-      max-width:900px;
-      margin:40px auto;
-      padding:20px;
-      background:var(--white);
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
-    }
-
-    h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
-    section { margin-bottom:30px; }
-
-    .content-block {
-      background:#fafafa;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    /* CONTACT FORM */
-    form {
-      display:flex;
-      flex-direction:column;
-      gap:15px;
-      margin-top:10px;
-    }
-
-    input, textarea {
-      padding:12px;
-      border-radius:6px;
-      border:1px solid var(--gray);
-      font-size:16px;
-      width:100%;
-    }
-
-    textarea {
-      min-height:120px;
-      resize:vertical;
-    }
-
-    .submit-btn {
-      padding:12px 24px;
-      background:var(--purple);
-      color:#fff;
-      border:none;
-      border-radius:6px;
-      font-size:18px;
-      font-weight:600;
-      cursor:pointer;
-      width:fit-content;
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-      background:var(--purple-dark);
-      color:var(--white);
-    }
-  </style>
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
 </head>
 
 <body>
 
-<!-- HEADER (Step 1) -->
+<!-- HEADER -->
 <header>
   <div class="logo-container">
-    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
+    <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
 
@@ -198,7 +23,7 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU (Step 2) -->
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -211,30 +36,77 @@
   </ul>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h2 class="hero-title">Contact Us</h2>
-  <p class="hero-tagline">We’d love to hear from you.</p>
-</section>
-
 <main>
 
-  <!-- MAIN CONTENT (cleaned + modernized) -->
-  <section class="content-block">
-    <h3>Get in Touch</h3>
+<!-- HERO -->
+<section class="hero">
+  <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
+  <h2 class="hero-title">Contact Us</h2>
+  <p class="hero-tagline">Reach out. Connect. Share your voice.</p>
+</section>
+
+<!-- CONTACT INTRO -->
+<section>
+  <h3>Get in Touch</h3>
+
+  <div class="info-box">
     <p>
-      Whether you have questions, feedback, or want to collaborate, feel free to reach out.  
-      Fill out the form below and we’ll get back to you soon.
+      Ninja Talks is built on real conversations and real people. If you want to reach out,
+      share something, ask a question, or connect with the team, here’s where you can do it.
+      We read every message with respect and care.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT METHODS -->
+<section>
+  <h3>Where You Can Reach Us</h3>
+
+  <div class="info-box">
+    <p><strong>Email:</strong> ninjatalksza@gmail.com</p>
+    <p><strong>TikTok:</strong> @ninjatalksza</p>
+    <p><strong>YouTube:</strong> Ninja Talks</p>
+    <p><strong>Instagram:</strong> @ninjatalksza</p>
+  </div>
+</section>
+
+<!-- UPDATED WEEKLY SCHEDULE -->
+<section>
+  <h3>Ninja Talks Weekly Live Schedule</h3>
+
+  <div class="info-box">
+    <p><strong>Monday:</strong> Neurodiversity Awareness & Acceptance — 8 PM to 10 PM SAST</p>
+    <p><strong>Tuesday:</strong> Mind & Body Wellness — 8 PM to 10 PM SAST</p>
+    <p><strong>Thursday:</strong> Storytime — 8 PM to 10 PM SAST</p>
+    <p><strong>Friday:</strong> AI Music Live Show — 8 PM to 12 AM SAST</p>
+    <p><strong>Sunday:</strong> Fellowship Service — 8 PM to 10 PM SAST</p>
+
+    <p style="margin-top:15px;">
+      Join the lives to be part of the conversations, testimonies, worship, stories,
+      music, and community.
+    </p>
+  </div>
+</section>
+
+<!-- SAFETY NOTE -->
+<section>
+  <h3>Before You Reach Out</h3>
+
+  <div class="info-box">
+    <p>
+      Many people who contact Ninja Talks share heavy, emotional, or personal experiences.
+      You are welcome to share what you feel comfortable with — but please remember:
     </p>
 
-    <!-- CONTACT FORM -->
-    <form action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button class="submit-btn" type="submit">Send Message</button>
-    </form>
-  </section>
+    <p>✔ We are here to listen, not to judge.</p>
+    <p>✔ We cannot offer medical, psychological, or crisis support.</p>
+    <p>✔ If you are in danger or struggling severely, please reach out to someone close to you or a local support line.</p>
+
+    <p>
+      You are not alone, and your voice matters — but your safety matters even more.
+    </p>
+  </div>
+</section>
 
 </main>
 
@@ -242,7 +114,6 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- SCRIPT (Step 3) -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
