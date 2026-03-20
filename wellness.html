@@ -6,24 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
+
+  <style>
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100%;
+      background: #3a0ca3;
+      padding-top: 80px;
+      transform: translateX(-260px);
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    .side-menu.open { transform: translateX(0); }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo">
     <h1>Ninja Talks</h1>
   </div>
-
-  <nav>
-    <div></div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  </nav>
+  <nav><button class="menu-toggle" onclick="toggleMenu()">☰</button></nav>
 </header>
 
-<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -38,148 +48,90 @@
 
 <main>
 
-<!-- HERO -->
 <section class="hero">
   <img src="/NinjaTalks/assets/images/Logo Other.png" class="hero-logo">
   <h2 class="hero-title">Mind & Body Wellness</h2>
   <p class="hero-tagline">Healing is not linear. Growth is not perfect.</p>
 </section>
 
-<!-- WHAT WELLNESS REALLY IS -->
 <section>
   <h3>What Wellness Really Means</h3>
-
   <div class="info-box">
     <p>
-      Wellness is not about pretending everything is fine. It’s not about forcing positivity,
-      ignoring your pain, or acting strong when you’re falling apart inside. Real wellness is
-      messy, honest, and deeply personal. It’s about learning yourself, understanding your limits,
-      and finding ways to cope, heal, and grow at your own pace.
-    </p>
-
-    <p>
-      At Ninja Talks, we don’t believe in “just get over it” or “stay positive.” We believe in
-      real conversations, real struggles, and real healing — the kind that takes time, patience,
-      and compassion.
+      Wellness is not about pretending everything is fine. It’s about honesty, self-awareness,
+      and learning to cope at your own pace. Real wellness is messy, human, and personal.
     </p>
   </div>
 </section>
 
-<!-- TRIGGER WARNINGS -->
 <section>
   <h3>Trigger Warnings</h3>
-
   <div class="info-box">
     <p>
-      ⚠️ Wellness discussions may include topics such as anxiety, depression, burnout, trauma,
-      emotional overwhelm, self‑esteem struggles, and life challenges. These topics can be heavy.
-      Please take care of yourself while reading or participating.
+      ⚠️ Discussions may include anxiety, depression, burnout, trauma, emotional overwhelm,
+      and other heavy topics. Please take care of yourself.
     </p>
   </div>
 </section>
 
-<!-- MENTAL + EMOTIONAL WELLNESS -->
 <section>
   <h3>Mental & Emotional Wellness</h3>
-
   <div class="info-box">
     <p>
       Mental wellness is not about being happy all the time. It’s about understanding your mind,
-      recognising your emotions, and learning how to navigate them without shame. Some days you
-      cope well. Some days you don’t. Both are valid.
-    </p>
-
-    <p>
-      Emotional wellness means allowing yourself to feel — without guilt, without fear, without
-      apologising for being human. You don’t have to be strong every day. You don’t have to hold
-      everything together alone.
+      recognising your emotions, and navigating them without shame.
     </p>
   </div>
 </section>
 
-<!-- PHYSICAL WELLNESS -->
 <section>
   <h3>Physical Wellness</h3>
-
   <div class="info-box">
     <p>
-      Physical wellness is more than exercise or diet. It’s about rest, boundaries, recovery,
-      and listening to your body. Many people push themselves past exhaustion because they feel
-      they “should” be doing more. But your body deserves care, not punishment.
-    </p>
-
-    <p>
-      Wellness looks different for everyone. For some, it’s movement. For others, it’s stillness.
-      For many, it’s simply surviving the day — and that counts too.
+      Physical wellness is more than exercise — it’s rest, boundaries, recovery, and listening
+      to your body. Wellness looks different for everyone.
     </p>
   </div>
 </section>
 
-<!-- SPIRITUAL WELLNESS -->
 <section>
   <h3>Spiritual Wellness</h3>
-
   <div class="info-box">
     <p>
-      Spiritual wellness is about connection — to faith, to purpose, to meaning, or to something
-      greater than yourself. It doesn’t have to look a certain way. It doesn’t have to follow
-      rules or rituals. It’s about grounding yourself in what brings you peace, strength, and
-      clarity.
-    </p>
-
-    <p>
-      For some, that’s prayer. For others, meditation. For others, reflection or gratitude.
-      Whatever your path looks like, it’s valid.
+      Spiritual wellness is about connection — to faith, purpose, meaning, or grounding.
+      It doesn’t have to look a certain way.
     </p>
   </div>
 </section>
 
-<!-- NINJA TALKS APPROACH -->
 <section>
   <h3>Ninja Talks & Wellness</h3>
-
   <div class="info-box">
     <p>
-      Ninja Talks is a space where people can talk openly about their struggles without being
-      judged or dismissed. We don’t offer medical advice or diagnoses. What we offer is
-      conversation, community, and a place where you don’t have to pretend.
-    </p>
-
-    <p>
-      Through TikTok Lives, discussions, testimonies, and shared experiences, we aim to create
-      a space where healing feels possible — even on the days it feels far away.
+      Ninja Talks is a space where people can talk openly about their struggles without judgment.
+      We don’t offer medical advice — we offer community, conversation, and support.
     </p>
   </div>
 </section>
 
-<!-- THIS WEEK'S TOPIC -->
 <section>
   <h3>📅 This Week’s Wellness Topic</h3>
-
   <div class="info-box">
     <p><strong>Topic:</strong> <span id="thisWeekTopic">To Be Announced</span></p>
-    <p><strong>Focus:</strong> <span id="thisWeekFocus">Revealed during the live session</span></p>
-    <p>Join us this week on TikTok Live.</p>
   </div>
 </section>
 
-<!-- LAST WEEK'S TOPIC -->
 <section>
   <h3>🎥 Last Week’s Topic</h3>
-
   <div class="info-box">
     <p><strong>Topic:</strong> <span id="lastWeekTopic">Last Week’s Discussion</span></p>
-    <p><strong>Focus:</strong> <span id="lastWeekFocus">Shared during the session</span></p>
-    <p><strong>Watch the replay:</strong></p>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/" allowfullscreen></iframe>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <p>&copy; Ninja Talks</p>
-</footer>
+<footer><p>&copy; Ninja Talks</p></footer>
 
 <script>
 function toggleMenu() {
