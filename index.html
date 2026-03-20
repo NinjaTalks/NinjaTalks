@@ -5,7 +5,7 @@
   <title>Ninja Talks – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- UNIVERSAL MODERNIZED CSS (Steps 4–4.4 included) -->
+  <!-- UNIVERSAL MODERNIZED CSS -->
   <style>
     :root {
       --purple-dark: #3a0ca3;
@@ -28,7 +28,7 @@
       line-height: 1.6;
     }
 
-    /* HEADER + HAMBURGER (Step 1) */
+    /* HEADER */
     header {
       background: linear-gradient(90deg, var(--purple-dark), var(--purple));
       padding: 20px;
@@ -66,7 +66,7 @@
       cursor: pointer;
     }
 
-    /* SLIDE-IN MENU (Step 2 + Step 4.4) */
+    /* SLIDE-IN MENU */
     .side-menu {
       position: fixed;
       top: 0;
@@ -77,8 +77,6 @@
       transform: translateX(-260px);
       transition: transform 0.3s ease;
       z-index: 999;
-      backface-visibility: hidden;
-      will-change: transform;
     }
 
     .side-menu.open {
@@ -103,8 +101,6 @@
       border-bottom-left-radius:20px;
       border-bottom-right-radius:20px;
       margin-bottom:40px;
-      transform: translateZ(0);
-      will-change: transform;
     }
 
     .hero img {
@@ -127,6 +123,18 @@
       opacity: 0.9;
     }
 
+    /* LIVE BADGE */
+    .live-badge {
+      display: inline-block;
+      background: #f72585;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
     /* MAIN CONTENT */
     main {
       max-width:900px;
@@ -135,8 +143,6 @@
       background:var(--white);
       border-radius:10px;
       box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transform: translateZ(0);
-      will-change: transform;
     }
 
     h2, h3 { color:var(--purple-dark); margin-bottom:10px; }
@@ -159,6 +165,17 @@
     .highlight-card:hover {
       transform: translateY(-4px);
       box-shadow:0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .btn {
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 20px;
+      background:var(--purple);
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:600;
     }
 
     .tiktok-button {
@@ -184,7 +201,7 @@
 
 <body>
 
-<!-- HEADER (Step 1) -->
+<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" alt="Ninja Talks Logo" class="logo">
@@ -197,7 +214,7 @@
   </nav>
 </header>
 
-<!-- SLIDE-IN MENU (Step 2) -->
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <ul>
     <li><a href="/NinjaTalks/index.html">Home</a></li>
@@ -217,6 +234,9 @@
     <img src="/NinjaTalks/assets/images/No background logo.png" alt="Ninja Talks Logo">
     <h2 class="hero-title">Welcome to Ninja Talks</h2>
     <p class="hero-tagline">Community, Creativity, Connection — join the movement.</p>
+
+    <!-- LIVE INDICATOR -->
+    <div id="liveIndicator"></div>
   </section>
 
   <!-- HIGHLIGHTS -->
@@ -237,9 +257,21 @@
 
       <div class="highlight-card">
         <h4>🤝 Upcoming Fellowship</h4>
-        <p>Countdown to our next community meetup.</p>
+        <p>Countdown to our next community service.</p>
         <a href="/NinjaTalks/fellowship.html" class="btn">Join Us</a>
       </div>
+    </div>
+  </section>
+
+  <!-- WEEKLY SCHEDULE -->
+  <section>
+    <h3>Weekly Live Schedule</h3>
+    <div class="highlight-grid">
+      <div class="highlight-card"><strong>Monday:</strong> Neurodiversity — 8 PM to 10 PM</div>
+      <div class="highlight-card"><strong>Tuesday:</strong> Mind & Body Wellness — 8 PM to 10 PM</div>
+      <div class="highlight-card"><strong>Thursday:</strong> Storytime — 8 PM to 10 PM</div>
+      <div class="highlight-card"><strong>Friday:</strong> AI Music — 8 PM to 12 AM</div>
+      <div class="highlight-card"><strong>Sunday:</strong> Fellowship — 8 PM to 10 PM</div>
     </div>
   </section>
 
@@ -261,11 +293,47 @@
   <p>&copy; Ninja Talks</p>
 </footer>
 
-<!-- SCRIPT (Step 3) -->
+<!-- LIVE STATUS SCRIPT -->
 <script>
 function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
+
+async function checkLiveStatus() {
+  try {
+    const response = await fetch('/NinjaTalks/assets/data/live.json');
+    const schedule = await response.json();
+
+    const now = new Date();
+    const options = { timeZone: 'Africa/Johannesburg' };
+    const local = new Date(now.toLocaleString('en-US', options));
+
+    const day = local.getDay();
+    const hour = local.getHours();
+
+    let liveShow = null;
+
+    schedule.forEach(show => {
+      if (show.day === day && hour >= show.start && hour < show.end) {
+        liveShow = show.name;
+      }
+    });
+
+    const indicator = document.getElementById('liveIndicator');
+
+    if (liveShow) {
+      indicator.innerHTML = `<span class="live-badge">🔴 LIVE NOW — ${liveShow}</span>`;
+    } else {
+      indicator.innerHTML = ``;
+    }
+
+  } catch (err) {
+    console.error('Error loading live schedule:', err);
+  }
+}
+
+checkLiveStatus();
+setInterval(checkLiveStatus, 60000);
 </script>
 
 </body>
