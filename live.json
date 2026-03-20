@@ -1,4 +1,9 @@
 {
-  "isLive": false,
-  "link": ""
+  "live": true,
+  "url": "https://www.tiktok.com/@yourliveurl"
+}
+
+{
+  "live": false,
+  "url": ""
 }
