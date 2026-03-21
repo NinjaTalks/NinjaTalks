@@ -34,41 +34,48 @@ body {
 -------------------------------------------------- */
 header {
   background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-  padding: 20px;
+  padding: 30px;                 /* more breathing room */
   color: var(--white);
   display: flex;
-  justify-content: center;   /* center the logo block */
+  justify-content: center;       /* center logo block */
   align-items: center;
-  position: relative;        /* allows absolute positioning for menu */
+  position: relative;            /* allows menu button positioning */
 }
 
 /* Logo block */
 .logo-container {
   display: flex;
-  flex-direction: column;    /* stack logo + text vertically */
-  align-items: center;       /* center horizontally */
+  flex-direction: column;        /* stack logo + text vertically */
+  align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 12px;                     /* spacing between logo and text */
 }
 
 /* Logo image */
 .logo {
-  height: 80px;
-  width: 80px;
+  height: 120px;                 /* bigger than 80px */
+  width: 120px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Logo text */
+.logo-container h1 {
+  font-size: 36px;               /* larger title text */
+  font-weight: 800;
+  margin: 0;
 }
 
 /* Menu button (hamburger) */
 .menu-toggle {
   position: absolute;
-  right: 20px;               /* keep it on the right edge */
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--white);
-  font-size: 24px;
+  font-size: 28px;               /* slightly larger to match */
   cursor: pointer;
 }
 
