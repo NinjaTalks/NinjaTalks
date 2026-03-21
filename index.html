@@ -28,9 +28,9 @@
     }
 
     /* HEADER */
-   header {
+  header {
   background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-  padding: 20px;
+  padding: 30px;
   color: var(--white);
   display: flex;
   justify-content: center;   /* center logo block */
@@ -38,21 +38,31 @@
   position: relative;        /* allows menu button positioning */
 }
 
+/* Logo block */
 .logo-container {
   display: flex;
   flex-direction: column;    /* stack logo + text vertically */
-  align-items: center;       /* center horizontally */
+  align-items: center;
   text-align: center;
-  gap: 8px;
+  gap: 12px;
 }
 
+/* Logo image */
 .logo {
-  height: 80px;
-  width: 80px;
+  height: 120px;             /* bigger logo */
+  width: 120px;
   border-radius: 50%;
   object-fit: cover;
 }
 
+/* Logo text */
+.logo-container h1 {
+  font-size: 40px;           /* bigger text */
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Menu button */
 .menu-toggle {
   position: absolute;
   right: 20px;
@@ -61,10 +71,10 @@
   background: none;
   border: none;
   color: var(--white);
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-}
-
+  }
+    
     /* FIXED MENU */
     .side-menu {
       position: fixed;
