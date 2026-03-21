@@ -119,6 +119,17 @@ header {
   font-weight: 600;
 }
 
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 28px;   /* size of the X */
+  cursor: pointer;
+}
+
 /* --------------------------------------------------
    HERO SECTION
 -------------------------------------------------- */
