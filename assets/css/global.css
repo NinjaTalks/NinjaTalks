@@ -77,8 +77,9 @@ header {
   background: none;
   border: none;
   color: var(--white);
-  font-size: 28px;               /* slightly larger to match */
+  font-size: 40px;   /* bigger than before (was ~28px) */
   cursor: pointer;
+  padding: 8px;      /* optional: adds clickable area */
 }
 
 /* --------------------------------------------------
