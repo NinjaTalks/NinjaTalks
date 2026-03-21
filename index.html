@@ -28,42 +28,42 @@
     }
 
     /* HEADER */
-    header {
-      background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-      padding: 20px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+   header {
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+  padding: 20px;
+  color: var(--white);
+  display: flex;
+  justify-content: center;   /* center logo block */
+  align-items: center;
+  position: relative;        /* allows menu button positioning */
+}
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+.logo-container {
+  display: flex;
+  flex-direction: column;    /* stack logo + text vertically */
+  align-items: center;       /* center horizontally */
+  text-align: center;
+  gap: 8px;
+}
 
-    .logo {
-      height: 80px;
-      width: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
+.logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .menu-toggle {
-      display: block;
-      font-size: 32px;
-      background: none;
-      border: none;
-      color: var(--white);
-      cursor: pointer;
-    }
+.menu-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 24px;
+  cursor: pointer;
+}
 
     /* FIXED MENU */
     .side-menu {
