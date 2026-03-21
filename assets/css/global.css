@@ -32,26 +32,27 @@ body {
 /* --------------------------------------------------
    HEADER
 -------------------------------------------------- */
-/* Header logo (top-left corner) */
-.header-logo {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  object-fit: cover;
+/* HEADER */
+header {
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple));
+  padding: 20px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Hero logo (above page title) */
-.page-logo {
-  height: 90px;   /* adjust size as needed */
-  width: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--white);
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.page-logo-container {
-  text-align: center;
-  margin-bottom: 15px;
+.logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 nav {
