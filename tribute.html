@@ -58,7 +58,8 @@ function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
 
-fetch("https://script.google.com/macros/s/AKfycby91HY6yyNLRb6POgE30de_xP-7dmo38uYMqAny_tLzRQ7B1yiaL-mHRZwRVnSjT7PQ/exec")
+// ✅ Updated to your new Web App URL
+fetch("https://script.google.com/macros/s/AKfycbwj7PHVY3NNDnNkzwZFvBsgPRP0qsMsTyvxjTdZH9cvCt9ySX9v8J526drHR3mgeOBX/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
