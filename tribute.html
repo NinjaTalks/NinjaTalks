@@ -60,31 +60,36 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your latest Web App URL
-fetch("https://script.google.com/macros/s/AKfycbxhY6hzqifHuvWBcwU5CtOoh-OGrkG2fGqSGg2LmKoGZicHrmGNqa0j5tR5GSZ9JhxW/exec")
+fetch("https://script.google.com/macros/s/AKfycbyYjdX_Nvpd6-UnDSAH6pDB5vVZMebnLglWSITjFzEojGBSQvSsztVVXQOjb7t2RkA2/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
+
     if (!data || data.length === 0) {
       container.innerHTML = "<p>No tributes yet — be the first to submit!</p>";
       return;
     }
+
     data.forEach(song => {
+      // Only show approved rows
       if (song["approved"] && song["approved"].toString().toLowerCase() === "yes") {
         const card = document.createElement("div");
         card.className = "highlight-card";
 
-        // Only MP3 source
+        // Build audio player using the Upload MP3 File column
         let audioHTML = `<audio controls>`;
         if (song["upload mp3 file"]) {
           audioHTML += `<source src="${song["upload mp3 file"]}" type="audio/mpeg">`;
         }
         audioHTML += `Your browser does not support the audio element.</audio>`;
 
+        // Build card content
         card.innerHTML = `
           <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
           ${audioHTML}
         `;
+
         container.appendChild(card);
       }
     });
