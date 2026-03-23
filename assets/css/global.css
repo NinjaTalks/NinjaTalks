@@ -4,7 +4,6 @@
 :root {
   --purple-dark: #3a0ca3;
   --purple: #7209b7;
-  --purple-light: #b5179e;
   --pink: #f72585;
   --white: #ffffff;
   --gray-light: #f5f5f5;
@@ -34,41 +33,37 @@ body {
 -------------------------------------------------- */
 header {
   background: linear-gradient(90deg, var(--purple-dark), var(--purple));
-  padding: 30px;                 /* more breathing room */
+  padding: 30px;
   color: var(--white);
   display: flex;
-  justify-content: center;       /* center logo block */
+  justify-content: center;
   align-items: center;
-  position: relative;            /* allows menu button positioning */
+  position: relative;
 }
 
-/* Logo block */
 .logo-container {
   display: flex;
-  flex-direction: column;        /* stack logo + text vertically */
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;                     /* spacing between logo and text */
+  gap: 12px;
 }
 
-/* Logo image */
 .logo {
-  height: 120px;                 /* bigger than 80px */
+  height: 120px;
   width: 120px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-/* Logo text */
 .logo-container h1 {
-  font-size: 40px;       /* bigger text */
+  font-size: 40px;
   font-weight: 800;
-  margin: 0;
-  text-transform: uppercase;  /* forces all caps */
-  letter-spacing: 2px;        /* optional: adds spacing for impact */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Menu button (hamburger) */
+/* Menu button */
 .menu-toggle {
   position: absolute;
   right: 20px;
@@ -77,13 +72,12 @@ header {
   background: none;
   border: none;
   color: var(--white);
-  font-size: 40px;   /* bigger than before (was ~28px) */
+  font-size: 40px;
   cursor: pointer;
-  padding: 8px;      /* optional: adds clickable area */
 }
 
 /* --------------------------------------------------
-   SLIDE-IN MENU (FULLY FIXED)
+   SIDE MENU
 -------------------------------------------------- */
 .side-menu {
   position: fixed;
@@ -126,7 +120,7 @@ header {
   background: none;
   border: none;
   color: var(--white);
-  font-size: 28px;   /* size of the X */
+  font-size: 28px;
   cursor: pointer;
 }
 
@@ -135,17 +129,12 @@ header {
 -------------------------------------------------- */
 .hero {
   text-align: center;
-  padding: 40px 20px;   /* reduced from 60px */
+  padding: 40px 20px;
   background: linear-gradient(180deg, var(--purple-dark), var(--purple));
   color: var(--white);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 40px;
-}
-
-.page-logo-container {
-  text-align: center;
-  margin-bottom: 20px;  /* spacing between logo and title */
 }
 
 .page-logo {
@@ -154,32 +143,18 @@ header {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
-  border: none; 
 }
 
 .hero-title {
-  color: #f8f8f8; /* off-white */
-  text-shadow: 0 0 12px rgba(255,255,255,0.8); /* stronger glow */
   font-size: 70px;
   font-weight: 800;
   margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(255,255,255,0.8);
 }
 
 .hero-tagline {
   font-size: 20px;
   opacity: 0.9;
-}
-
-/* LIVE BADGE */
-.live-badge {
-  display: inline-block;
-  background: var(--pink);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: 700;
-  margin-top: 15px;
-  font-size: 16px;
 }
 
 /* --------------------------------------------------
@@ -215,72 +190,3 @@ section {
 .highlight-card {
   background: #fafafa;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.highlight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-/* --------------------------------------------------
-   INFO BOXES
--------------------------------------------------- */
-.info-box {
-  background: #fafafa;
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 5px solid var(--purple);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-/* --------------------------------------------------
-   BUTTONS
--------------------------------------------------- */
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: var(--purple);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-}
-
-.tiktok-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 12px 24px;
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-}
-
-/* --------------------------------------------------
-   FOOTER
--------------------------------------------------- */
-footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  background: var(--purple-dark);
-  color: var(--white);
-}
-
-/* --------------------------------------------------
-   RESPONSIVE FIXES
--------------------------------------------------- */
-@media (max-width: 600px) {
-  .hero-title {
-    font-size: 32px;
-  }
-  .hero-logo {
-    height: 90px;
-    width: 90px;
-  }
-}
