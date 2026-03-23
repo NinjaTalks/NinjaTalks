@@ -41,6 +41,7 @@
     <h2 class="hero-title">Tribute Songs</h2>
     <p class="hero-tagline">Community‑submitted Ninja Talks music.</p>
     <a href="https://forms.gle/bVPBUvQKiitrA1BV7" class="btn">Submit a Tribute</a>
+    <p class="note">⚠️ Only MP3 files are accepted for uploads.</p>
   </section>
 
   <section>
@@ -58,8 +59,8 @@ function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
 
-// ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbzYMfLn43ECFnipDdsAPIimyQF0bv6D4Wpj6_7HjCGIYvrSxeES6FEFH0OUO35Ny_b1/exec")
+// ✅ Fetch from your latest Web App URL
+fetch("https://script.google.com/macros/s/AKfycbxhY6hzqifHuvWBcwU5CtOoh-OGrkG2fGqSGg2LmKoGZicHrmGNqa0j5tR5GSZ9JhxW/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -68,16 +69,21 @@ fetch("https://script.google.com/macros/s/AKfycbzYMfLn43ECFnipDdsAPIimyQF0bv6D4W
       return;
     }
     data.forEach(song => {
-      if (song.approved && song.approved.toString().toLowerCase() === "yes") {
+      if (song["approved"] && song["approved"].toString().toLowerCase() === "yes") {
         const card = document.createElement("div");
         card.className = "highlight-card";
+
+        // Only MP3 source
+        let audioHTML = `<audio controls>`;
+        if (song["upload mp3 file"]) {
+          audioHTML += `<source src="${song["upload mp3 file"]}" type="audio/mpeg">`;
+        }
+        audioHTML += `Your browser does not support the audio element.</audio>`;
+
         card.innerHTML = `
-          <h4>🎵 ${song.title}</h4>
-          <p>by ${song.artist}</p>
-          <audio controls>
-            <source src="${song.mp3}" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <h4>🎵 ${song["song title"]}</h4>
+          <p>by ${song["artist name"]}</p>
+          ${audioHTML}
         `;
         container.appendChild(card);
       }
