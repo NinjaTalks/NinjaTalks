@@ -5,6 +5,21 @@
   <title>Ninja Talks – Tribute Songs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
+  <style>
+    .status {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .status.ready {
+      color: green;
+    }
+    .status.restricted {
+      color: red;
+    }
+    .status.not-approved {
+      color: gray;
+    }
+  </style>
 </head>
 <body>
 
@@ -66,12 +81,11 @@ fetch("https://script.google.com/macros/s/AKfycbyodrf8ZXn64plmIh6H8Y4Jscb6q2YgyK
     const container = document.getElementById("tribute-list");
 
     if (!data || data.length === 0) {
-      container.innerHTML = "<p>No tributes yet — be the first to submit!</p>";
+      container.innerHTML = "<p>No approved tributes yet — submit one above!</p>";
       return;
     }
 
     data.forEach(song => {
-      // Only show approved rows
       if (song["approved"] && song["approved"].toString().toLowerCase() === "yes") {
         const card = document.createElement("div");
         card.className = "highlight-card";
@@ -92,12 +106,23 @@ fetch("https://script.google.com/macros/s/AKfycbyodrf8ZXn64plmIh6H8Y4Jscb6q2YgyK
         }
         audioHTML += `Your browser does not support the audio element.</audio>`;
 
-        // Build card content with status
+        // Status badge
+        let statusClass = "not-approved";
+        let statusText = "Not approved";
+        if (song["status"] && song["status"].toLowerCase() === "ready") {
+          statusClass = "ready";
+          statusText = "✅ Ready";
+        } else if (song["status"] && song["status"].toLowerCase().includes("restricted")) {
+          statusClass = "restricted";
+          statusText = "⚠️ Restricted – check sharing settings";
+        }
+
+        // Build card content
         card.innerHTML = `
-          <h4>🎵 ${song["song name"]}</h4>
+          <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
           ${audioHTML}
-          <p class="status">Status: ${song["status"] || "Unknown"}</p>
+          <p class="status ${statusClass}">Status: ${statusText}</p>
         `;
 
         container.appendChild(card);
