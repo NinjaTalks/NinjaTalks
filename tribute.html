@@ -11,8 +11,8 @@
       margin-top: 5px;
     }
     .status.ready { color: green; }
-    .status.restricted { color: red; }
     .status.not-approved { color: gray; }
+    .status.restricted { color: red; }
     .download-btn {
       display: inline-block;
       margin-top: 8px;
@@ -24,6 +24,13 @@
     }
     .download-btn:hover {
       background: #555;
+    }
+    .highlight-card {
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin: 10px;
+      border-radius: 6px;
+      background: #fafafa;
     }
   </style>
 </head>
@@ -81,7 +88,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.googleusercontent.com/macros/echo?user_content_key=AWDtjMWuSO445u8qgT5SURpFsrQRY2UfAY4SIOqsEupdGaUwsV8k3W4GmrtSIy93WtZa9B4bi-QC686pq4xqR7qx9Tb06Ol5YC4yiaUTIl9a7coM_YvSTBINOAzXKgV5-e2qjXuXLhusJqBhqWMQKkqkJSkFCXVhsd3Ox3Jt92iJ5Y31DfdC9xT-4E9Ybo1TQXGxazFwllsAIgX51nBD4ppCfoBxnalauR7vLfrgtVZK70rHeSc5LUoiL2Dk7Qh6kf0c5BiTBmMvq3pjvNzxQM4Di3Up0-LvWA&lib=MFKKkOzxDLzeeStQUCTQsCmulHhryzpvX")
+fetch("https://script.google.com/macros/s/AKfycbzODRMtNRhCDxkKSYH2u7U8oKUNkkN05gXw4g4ixCk8mBMrky9j_PlK_lEpQ3hTsA7z/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
