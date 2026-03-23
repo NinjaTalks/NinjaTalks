@@ -88,7 +88,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbxKBuroZfzd1yIn_QjGmJe9Ma9Q2yFD47T_a53c7LLDJK-sp2vWg4Y2SZCiSstRY6IK/exec")
+fetch("https://script.google.com/macros/s/AKfycbxqHG-zLxZe2M0oacF3G0kBntRQFoyMPC_OUxzBjuOkTSaBol-DON0i3uK7qg-KceDi/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -104,6 +104,7 @@ fetch("https://script.google.com/macros/s/AKfycbxKBuroZfzd1yIn_QjGmJe9Ma9Q2yFD47
         card.className = "highlight-card";
 
         let link = song["upload mp3 file"];
+        console.log("Audio URL for", song["song title"], ":", link);
 
         // Build audio player
         let audioHTML = `<audio controls>`;
