@@ -44,26 +44,8 @@
   </nav>
 </header>
 
-<div class="side-menu" id="sideMenu">
-  <button class="close-menu" onclick="toggleMenu()">✖</button>
-  <ul>
-    <li><a href="/NinjaTalks/index.html">Home</a></li>
-    <li><a href="/NinjaTalks/neurodiversity.html">Neurodiversity</a></li>
-    <li><a href="/NinjaTalks/wellness.html">Mind & Body</a></li>
-    <li><a href="/NinjaTalks/storytime.html">Story Time</a></li>
-    <li><a href="/NinjaTalks/fellowship.html">Fellowship</a></li>
-    <li><a href="/NinjaTalks/music.html">AI Music</a></li>
-    <li><a href="/NinjaTalks/shop.html">Shop</a></li>
-    <li><a href="/NinjaTalks/tribute.html">Tribute Songs</a></li>
-    <li><a href="/NinjaTalks/contact.html">Contact</a></li>
-  </ul>
-</div>
-
 <main>
   <section class="hero">
-    <div class="page-logo-container">
-      <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="page-logo">
-    </div>
     <h2 class="hero-title">Tribute Songs</h2>
     <p class="hero-tagline">Community‑submitted Ninja Talks music.</p>
     <a href="https://forms.gle/bVPBUvQKiitrA1BV7" class="btn">Submit a Tribute</a>
@@ -91,11 +73,11 @@
 
 <script>
 function toggleMenu() {
-  document.getElementById("sideMenu").classList.toggle("open");
+  document.getElementById("sideMenu")?.classList.toggle("open");
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbywB0ytMNDWgq3_XAKshd_JBRHJbZngJ9jN8SMdN-5ZWOzmRT7PhhGrb0EtpvJrAD0Y/exec")
+fetch("https://script.google.com/macros/s/AKfycbz6A_Y5EosnVg6YfNq9P96KJIvXiZPa8INpi5MbIwZB4iXGK1IODjVYcNOZH1q-VDfd/exec")
   .then(response => response.json())
   .then(data => {
     const tbody = document.querySelector("#tribute-table tbody");
@@ -108,7 +90,6 @@ fetch("https://script.google.com/macros/s/AKfycbywB0ytMNDWgq3_XAKshd_JBRHJbZngJ9
     data.forEach(song => {
       if (song["approved"] && song["approved"].toString().toLowerCase() === "yes") {
         let link = song["upload mp3 file"];
-
         const row = document.createElement("tr");
         row.innerHTML = `
           <td>${song["artist name"]}</td>
