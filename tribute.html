@@ -32,6 +32,11 @@
       border-radius: 6px;
       background: #fafafa;
     }
+    .debug {
+      font-size: 0.85em;
+      color: #555;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -88,7 +93,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbxqHG-zLxZe2M0oacF3G0kBntRQFoyMPC_OUxzBjuOkTSaBol-DON0i3uK7qg-KceDi/exec")
+fetch("https://script.google.com/macros/s/AKfycbw4UVQfzVu59dDRBl_pZL7zOJJPr631663zQCMak0nnuGq0mDs7uHL3UORS5HqYGTIl/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -124,13 +129,14 @@ fetch("https://script.google.com/macros/s/AKfycbxqHG-zLxZe2M0oacF3G0kBntRQFoyMPC
           statusText = "⚠️ Restricted – check sharing settings";
         }
 
-        // Build card content
+        // Build card content with debug info
         card.innerHTML = `
           <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
           ${audioHTML}
           <p class="status ${statusClass}">Status: ${statusText}</p>
           <a href="${link}" class="download-btn" download>⬇ Download</a>
+          <p class="debug">Debug fileId: ${link.replace(/^.*fileId=/,'')}</p>
         `;
 
         container.appendChild(card);
