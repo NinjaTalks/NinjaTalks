@@ -88,7 +88,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbxQMayIDRiILgPxWjQwLMOBAcCY23Med89bEwarRB_4cQWztwNl7pI7VZh-E6zmLD8j/exec")
+fetch("https://script.google.com/macros/s/AKfycbzKGJEN9IaDnW-Yeg-Jcc31HoecwsFtSMfrZtMjSK8Jmc9G7DP2EgJu8-Dy7aG1pUU2fU5AyrJ/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -115,7 +115,7 @@ fetch("https://script.google.com/macros/s/AKfycbxQMayIDRiILgPxWjQwLMOBAcCY23Med8
           audio.appendChild(source);
         }
 
-        // Fallback: if audio fails, show download button
+        // Fallback: if audio fails, show download link
         audio.onerror = () => {
           audio.replaceWith(document.createElement("p"));
           card.innerHTML += `<p>⚠️ Playback failed. Please use the download link below.</p>`;
