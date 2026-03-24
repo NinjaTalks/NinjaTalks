@@ -88,7 +88,7 @@ function toggleMenu() {
 }
 
 // ✅ Fetch from your new Web App URL
-fetch("https://script.google.com/macros/s/AKfycbwASaFNM1IVF09xO4XiukFsFJVBNjYUGMGPpcMspA5O2PXqf6X8IX_7EuwYHZRybEuR/exec")
+fetch("https://script.google.com/macros/s/AKfycbwLjo8WTu5SO94XM4OoVEw0uPEl_Bz3eKzcJhM8b-z_c89xGaTiakUVcxvFCbiJJTfR/exec")
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("tribute-list");
@@ -103,23 +103,16 @@ fetch("https://script.google.com/macros/s/AKfycbwASaFNM1IVF09xO4XiukFsFJVBNjYUGM
         const card = document.createElement("div");
         card.className = "highlight-card";
 
+        // Direct Drive link already provided in JSON
         let link = song["upload mp3 file"];
 
-        // Build audio player with fallback
-        let audio = document.createElement("audio");
-        audio.controls = true;
-        if (link) {
-          let source = document.createElement("source");
-          source.src = link;
-          source.type = "audio/mpeg";
-          audio.appendChild(source);
-        }
-
-        // Fallback: if audio fails, show download link
-        audio.onerror = () => {
-          audio.replaceWith(document.createElement("p"));
-          card.innerHTML += `<p>⚠️ Playback failed. Please use the download link below.</p>`;
-        };
+        // Build audio player
+        let audioHTML = `
+          <audio controls>
+            <source src="${link}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        `;
 
         // Status badge
         let statusClass = "not-approved";
@@ -136,9 +129,7 @@ fetch("https://script.google.com/macros/s/AKfycbwASaFNM1IVF09xO4XiukFsFJVBNjYUGM
         card.innerHTML = `
           <h4>🎵 ${song["song title"]}</h4>
           <p>by ${song["artist name"]}</p>
-        `;
-        card.appendChild(audio);
-        card.innerHTML += `
+          ${audioHTML}
           <p class="status ${statusClass}">Status: ${statusText}</p>
           <a href="${link}" class="download-btn" download>⬇ Download</a>
         `;
