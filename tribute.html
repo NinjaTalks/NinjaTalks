@@ -6,16 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
   <style>
-    .status {
-      font-weight: bold;
-      margin-top: 5px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
-    .status.ready { color: green; }
-    .status.not-approved { color: gray; }
-    .status.restricted { color: red; }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #333;
+      color: #fff;
+    }
     .download-btn {
-      display: inline-block;
-      margin-top: 8px;
       padding: 6px 12px;
       background: #333;
       color: #fff;
@@ -24,13 +29,6 @@
     }
     .download-btn:hover {
       background: #555;
-    }
-    .highlight-card {
-      border: 1px solid #ddd;
-      padding: 12px;
-      margin: 10px;
-      border-radius: 6px;
-      background: #fafafa;
     }
   </style>
 </head>
@@ -74,7 +72,16 @@
 
   <section>
     <h3>Latest Tributes</h3>
-    <div id="tribute-list" class="highlight-grid"></div>
+    <table id="tribute-table">
+      <thead>
+        <tr>
+          <th>Artist Name</th>
+          <th>Song Title</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </section>
 </main>
 
@@ -91,47 +98,31 @@ function toggleMenu() {
 fetch("https://script.google.com/macros/s/AKfycbywB0ytMNDWgq3_XAKshd_JBRHJbZngJ9jN8SMdN-5ZWOzmRT7PhhGrb0EtpvJrAD0Y/exec")
   .then(response => response.json())
   .then(data => {
-    const container = document.getElementById("tribute-list");
+    const tbody = document.querySelector("#tribute-table tbody");
 
     if (!data || data.length === 0) {
-      container.innerHTML = "<p>No approved tributes yet — submit one above!</p>";
+      tbody.innerHTML = "<tr><td colspan='3'>No approved tributes yet — submit one above!</td></tr>";
       return;
     }
 
     data.forEach(song => {
       if (song["approved"] && song["approved"].toString().toLowerCase() === "yes") {
-        const card = document.createElement("div");
-        card.className = "highlight-card";
-
-        // Proxy link provided in JSON (exec?fileId=...)
         let link = song["upload mp3 file"];
 
-        // Status badge
-        let statusClass = "not-approved";
-        let statusText = "Not approved";
-        if (song["status"] && song["status"].toLowerCase() === "ready") {
-          statusClass = "ready";
-          statusText = "✅ Ready";
-        } else if (song["status"] && song["status"].toLowerCase().includes("restricted")) {
-          statusClass = "restricted";
-          statusText = "⚠️ Restricted – check sharing settings";
-        }
-
-        // Build card content (download only)
-        card.innerHTML = `
-          <h4>🎵 ${song["song title"]}</h4>
-          <p>by ${song["artist name"]}</p>
-          <p class="status ${statusClass}">Status: ${statusText}</p>
-          <a href="${link}" class="download-btn" download>⬇ Download</a>
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${song["artist name"]}</td>
+          <td>${song["song title"]}</td>
+          <td><a href="${link}" class="download-btn" download>⬇ Download</a></td>
         `;
-
-        container.appendChild(card);
+        tbody.appendChild(row);
       }
     });
   })
   .catch(error => {
     console.error("Error loading songs:", error);
-    document.getElementById("tribute-list").innerHTML = "<p>Unable to load songs right now.</p>";
+    const tbody = document.querySelector("#tribute-table tbody");
+    tbody.innerHTML = "<tr><td colspan='3'>Unable to load songs right now.</td></tr>";
   });
 </script>
 
