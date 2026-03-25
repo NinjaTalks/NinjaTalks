@@ -86,11 +86,7 @@ async function loadTributes() {
           <h4>${t["song title"] || "Untitled"}</h4>
           <p>By ${t["artist name"] || "Unknown"}</p>
           <p class="timestamp">Submitted on ${new Date(t["timestamp"]).toLocaleString()}</p>
-          <audio controls preload="auto">
-            <source src="${t["upload mp3 file"]}" type="audio/mpeg">
-            ⚠️ This track may not play inline. Please check file format (MP3 only) and sharing settings.
-          </audio>
-          ${driveLink ? `<p><a href="${driveLink}" target="_blank">Open in Google Drive</a></p>` : ""}
+          ${driveLink ? `<p><a href="${driveLink}" target="_blank">Download / Open in Google Drive</a></p>` : ""}
         `;
         container.appendChild(card);
       }
