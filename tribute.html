@@ -5,7 +5,6 @@
   <title>Ninja Talks – Tribute Songs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Global theme stylesheet -->
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
   <link rel="stylesheet" href="/NinjaTalks/assets/css/tribute.css">
 
@@ -99,7 +98,7 @@ function toggleMenu() {
   document.getElementById("sideMenu").classList.toggle("open");
 }
 
-// Extract file ID for Drive view link
+// Extract file ID for direct download link
 function extractFileId(url) {
   const match = url.match(/[-\\w]{25,}/);
   return match ? match[0] : null;
@@ -117,14 +116,14 @@ async function loadTributes() {
     tributes.forEach(t => {
       if (t.status === "Ready") {
         const fileId = extractFileId(t["upload mp3 file"]);
-        const driveLink = fileId ? `https://drive.google.com/file/d/${fileId}/view?usp=sharing` : "#";
+        const downloadLink = fileId ? `https://drive.google.com/uc?export=download&id=${fileId}` : "#";
 
         const row = document.createElement("tr");
         row.innerHTML = `
           <td>${t["artist name"] || "Unknown"}</td>
           <td>${t["song title"] || "Untitled"}</td>
           <td>${new Date(t["timestamp"]).toLocaleString()}</td>
-          <td><a href="${driveLink}" target="_blank" class="download-btn">Download</a></td>
+          <td><a href="${downloadLink}" class="download-btn">Download</a></td>
         `;
         tbody.appendChild(row);
       }
