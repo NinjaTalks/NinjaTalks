@@ -5,11 +5,10 @@
   <title>Ninja Talks – Tribute Songs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Correct global stylesheet path -->
+  <!-- Global theme stylesheet -->
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
 
   <style>
-    /* Ensure side menu works consistently */
     .side-menu {
       position: fixed;
       top: 0;
@@ -30,7 +29,6 @@
 
 <header>
   <div class="logo-container">
-    <!-- Update with your actual logo file -->
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo" alt="Ninja Talks Logo">
     <h1>Ninja Talks</h1>
   </div>
@@ -56,13 +54,13 @@
 
 <section class="hero">
   <div class="page-logo-container">
-    <!-- Update with your tribute logo file -->
     <img src="/NinjaTalks/assets/images/page-logo.png" class="page-logo" alt="Tribute Logo">
   </div>
   <h2 class="hero-title">Tribute Songs</h2>
   <p class="hero-tagline">Celebrating creativity and connection</p>
-  <!-- Upload button -->
-  <a href="YOUR_GOOGLE_FORM_URL" class="btn">Upload Your Tribute (MP3 Only)</a>
+  <!-- Upload button wired to your live Google Form -->
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrpzWvDn38ZmSGJWGKw89yGBNLRmzJyjZwonlKJEKUM-kRwQ/viewform?usp=sharing"
+     target="_blank" class="btn">Upload Your Tribute (MP3 Only)</a>
 </section>
 
 <section>
@@ -94,23 +92,4 @@ async function loadTributes() {
         card.className = "highlight-card";
         card.innerHTML = `
           <h4>${t.songtitle || "Untitled"}</h4>
-          <p>By ${t.artist || "Unknown"}</p>
-          <audio controls src="${t["upload mp3 file"]}"></audio>
-        `;
-        container.appendChild(card);
-      }
-    });
-
-    if (container.innerHTML === "") {
-      container.innerHTML = "<p>No approved tributes yet.</p>";
-    }
-  } catch (err) {
-    document.getElementById("tributes").innerHTML = "<p>Error loading tributes: " + err + "</p>";
-  }
-}
-
-loadTributes();
-</script>
-
-</body>
-</html>
+          <p>By ${t.artist || "
