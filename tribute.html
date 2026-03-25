@@ -7,42 +7,26 @@
 
   <!-- Global theme stylesheet -->
   <link rel="stylesheet" href="/NinjaTalks/assets/css/global.css">
-
-  <style>
-    .side-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 260px;
-      height: 100%;
-      background: #3a0ca3;
-      padding-top: 80px;
-      transform: translateX(-260px);
-      transition: transform 0.3s ease;
-      z-index: 9999;
-    }
-    .side-menu.open { transform: translateX(0); }
-
-    /* Log line styling */
-    .page-log {
-      text-align: center;
-      font-size: 14px;
-      color: var(--gray);
-      margin-top: 10px;
-    }
-  </style>
+  <!-- Optional tribute-specific stylesheet -->
+  <link rel="stylesheet" href="/NinjaTalks/assets/css/tribute.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="logo-container">
     <img src="/NinjaTalks/assets/images/IMG-20260227-WA0002(1).jpg" class="logo" alt="Ninja Talks Logo">
     <h1>Ninja Talks</h1>
   </div>
-  <nav><button class="menu-toggle" onclick="toggleMenu()">☰</button></nav>
+
+  <nav>
+    <div></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
 </header>
 
+<!-- SLIDE-IN MENU -->
 <div class="side-menu" id="sideMenu">
   <button class="close-menu" onclick="toggleMenu()">✖</button>
   <ul>
@@ -60,19 +44,19 @@
 
 <main>
 
+<!-- HERO -->
 <section class="hero">
   <div class="page-logo-container">
     <img src="/NinjaTalks/assets/images/page-logo.png" class="page-logo" alt="Tribute Logo">
   </div>
-  <!-- Log line above page title -->
   <div class="page-log">🎵 Live Tribute Submissions Log</div>
   <h2 class="hero-title">Tribute Songs</h2>
   <p class="hero-tagline">Celebrating creativity and connection</p>
-  <!-- Upload button wired to your live Google Form -->
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrpzWvDn38ZmSGJWGKw89yGBNLRmzJyjZwonlKJEKUM-kRwQ/viewform?usp=sharing"
      target="_blank" class="btn">Upload Your Tribute (MP3 Only)</a>
 </section>
 
+<!-- TRIBUTES -->
 <section>
   <h3>Approved Tributes</h3>
   <div id="tributes" class="highlight-grid">Loading tributes...</div>
@@ -101,8 +85,8 @@ async function loadTributes() {
         const card = document.createElement("div");
         card.className = "highlight-card";
         card.innerHTML = `
-          <h4>${t.songtitle || "Untitled"}</h4>
-          <p>By ${t.artist || "Unknown"}</p>
+          <h4>${t["song title"] || "Untitled"}</h4>
+          <p>By ${t["artist name"] || "Unknown"}</p>
           <audio controls src="${t["upload mp3 file"]}"></audio>
         `;
         container.appendChild(card);
@@ -112,6 +96,11 @@ async function loadTributes() {
     if (container.innerHTML === "") {
       container.innerHTML = "<p>No approved tributes yet.</p>";
     }
+
+    // Update log line with timestamp
+    document.querySelector(".page-log").textContent =
+      "🎵 Live Tribute Submissions Log – Last updated: " + new Date().toLocaleString();
+
   } catch (err) {
     document.getElementById("tributes").innerHTML = "<p>Error loading tributes: " + err + "</p>";
   }
